@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "username": "Fikrimarzuki",
+  "domains": {
+    "primary": "fikrimarzuki.work"
+  },
+  "projects": {
+    "gateway": {
+      "name": "Developer Ecosystem",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-gateway",
+      "deployments": {
+        "main": {
+          "name": "gateway",
+          "subdomain": null,
+          "aliases": ["www"]
+        }
+      }
+    },
+    "cv": {
+      "name": "CV",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-cv",
+      "deployments": {
+        "main": {
+          "name": "cv",
+          "subdomain": "cv"
+        }
+      }
+    },
+    "playground": {
+      "name": "Playground",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-playground",
+      "deployments": {
+        "main": {
+          "name": "playground",
+          "subdomain": "play"
+        }
+      }
+    },
+    "projects": {
+      "name": "Projects",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-projects",
+      "deployments": {
+        "main": {
+          "name": "projects",
+          "subdomain": "projects"
+        }
+      }
+    },
+    "games": {
+      "name": "Games",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-games",
+      "deployments": {
+        "main": {
+          "name": "games",
+          "subdomain": "games"
+        }
+      }
+    },
+    "learning": {
+      "name": "Learning",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-learning",
+      "deployments": {
+        "main": {
+          "name": "learning",
+          "subdomain": "learn"
+        }
+      }
+    },
+    "roadmap": {
+      "name": "Roadmap",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-roadmap",
+      "deployments": {
+        "main": {
+          "name": "roadmap",
+          "subdomain": "roadmap"
+        }
+      }
+    },
+    "tools": {
+      "name": "Tools",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-tools",
+      "deployments": {
+        "main": {
+          "name": "tools",
+          "subdomain": "tools"
+        }
+      }
+    },
+    "devtools": {
+      "name": "DevTools",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-devtools",
+      "deployments": {
+        "main": {
+          "name": "devtools",
+          "subdomain": "devtools"
+        }
+      }
+    },
+    "pageLayr": {
+      "name": "Page Layr",
+      "status": "active",
+      "listing": "public",
+      "repository": "app-page-layr",
+      "deployments": {
+        "main": {
+          "name": "page-layr",
+          "subdomain": "page-layr"
+        }
+      }
+    },
+    "playdeck": {
+      "name": "Playdeck",
+      "status": "active",
+      "listing": "public",
+      "repository": "app-playdeck",
+      "deployments": {
+        "main": {
+          "name": "playdeck",
+          "subdomain": "playdeck"
+        }
+      }
+    },
+    "tinyverse": {
+      "name": "Tinyverse",
+      "status": "active",
+      "listing": "public",
+      "repository": "game-tinyverse",
+      "deployments": {
+        "main": {
+          "name": "tinyverse",
+          "subdomain": "tinyverse"
+        }
+      }
+    },
+    "javascriptia": {
+      "name": "JavaScriptia",
+      "status": "active",
+      "listing": "public",
+      "repository": "game-javascriptia",
+      "deployments": {
+        "main": {
+          "name": "javascriptia",
+          "subdomain": "javascriptia"
+        }
+      }
+    },
+    "kodeStep": {
+      "name": "KodeStep",
+      "status": "completed",
+      "listing": "public",
+      "repository": "learn-kodestep"
+    },
+    "careerLens": {
+      "name": "CareerLens",
+      "status": "completed",
+      "listing": "public",
+      "repository": "app-careerlens"
+    },
+    "scriptoria": {
+      "name": "Scriptoria",
+      "status": "paused",
+      "listing": "public",
+      "repository": "game-scriptoria"
+    },
+    "multiRepoClone": {
+      "name": "Multiple Git Clone",
+      "status": "completed",
+      "listing": "public",
+      "repository": "tool-multi-repo-clone"
+    },
+    "inventory": {
+      "name": "Inventory",
+      "status": "paused",
+      "listing": "public",
+      "repository": "app-inventory"
+    },
+    "cssTricks": {
+      "name": "CSS Tricks",
+      "status": "paused",
+      "listing": "public",
+      "repository": "lab-css-tricks"
+    },
+    "nodeApi": {
+      "name": "Node API",
+      "status": "paused",
+      "listing": "public",
+      "repository": "lab-node-api"
+    },
+    "frontendMonorepo": {
+      "name": "Frontend Monorepo",
+      "status": "paused",
+      "listing": "public",
+      "repository": "lab-frontend-monorepo"
+    },
+    "foodieMap": {
+      "name": "Foodie Map",
+      "status": "paused",
+      "listing": "public",
+      "repository": "lab-projects",
+      "path": "foodie-map",
+      "deployments": {
+        "main": {
+          "name": "foodie-map",
+          "subdomain": "foodie-map"
+        }
+      }
+    },
+    "tcgHub": {
+      "name": "TCG Hub",
+      "status": "paused",
+      "listing": "public",
+      "repository": "lab-projects",
+      "path": "tcg-hub",
+      "deployments": {
+        "main": {
+          "name": "tcg-hub",
+          "subdomain": "tcg-hub"
+        }
+      }
+    },
+    "nikahyukPrototype": {
+      "name": "Nikah Yuk Prototype",
+      "status": "completed",
+      "listing": "public",
+      "repository": "lab-projects",
+      "deployments": {
+        "main": {
+          "name": "nikahyuk-prototype",
+          "subdomain": "nikahyuk-prototype"
+        }
+      }
+    },
+    "nikahyuk": {
+      "name": "Nikah Yuk",
+      "status": "active",
+      "listing": "public",
+      "repository": "nikahyuk-app",
+      "deployments": {
+        "main": {
+          "name": "nikahyuk",
+          "subdomain": "nikahyuk"
+        }
+      }
+    },
+    "nikahkuy": {
+      "name": "Nikah Kuy",
+      "status": "completed",
+      "listing": "public",
+      "deployments": {
+        "main": {
+          "name": "nikahkuy",
+          "subdomain": "nikahkuy"
+        }
+      }
+    },
+    "wedding": {
+      "name": "Wedding",
+      "status": "completed",
+      "listing": "hidden",
+      "repository": "wedding-invitation",
+      "deployments": {
+        "main": {
+          "name": "wedding",
+          "subdomain": "wedding"
+        }
+      }
+    },
+    "neuran": {
+      "name": "Neuran",
+      "status": "paused",
+      "listing": "public",
+      "repository": "app-neuran",
+      "deployments": {
+        "main": {
+          "name": "neuran",
+          "subdomain": "neuran"
+        },
+        "admin": {
+          "name": "neuran-admin",
+          "subdomain": "neuran-admin"
+        },
+        "lms": {
+          "name": "neuran-lms",
+          "subdomain": "neuran-lms"
+        },
+        "skill": {
+          "name": "neuran-skill",
+          "subdomain": "neuran-skill"
+        },
+        "social": {
+          "name": "neuran-social",
+          "subdomain": "neuran-social"
+        }
+      }
+    }
+  }
+}
