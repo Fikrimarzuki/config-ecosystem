@@ -165,7 +165,7 @@ pnpm validate                                  # validates config/production.jso
 node scripts/validate.mjs path/to/config.json  # validates another file
 ```
 
-The command exits non-zero and lists each problem when the config is invalid.
+The command exits non-zero and lists each problem when the config is invalid. GitHub Actions runs it on every push and pull request to `main`.
 
 ## Usage
 
