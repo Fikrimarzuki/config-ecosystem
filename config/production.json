@@ -32,7 +32,7 @@
     },
     "playground": {
       "name": "Playground",
-      "status": "active",
+      "status": "paused",
       "listing": "public",
       "repository": "web-playground",
       "deployments": {

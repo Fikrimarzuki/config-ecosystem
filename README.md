@@ -10,7 +10,7 @@ My projects are spread across multiple GitHub repositories and deployments, but 
 
 Instead of hardcoding values such as:
 
-```text id="j5nnbw"
+```text
 https://play.fikrimarzuki.work
 https://page-layr.fikrimarzuki.work
 https://tinyverse.fikrimarzuki.work
@@ -24,13 +24,13 @@ When a shared value such as the primary domain changes, it can be updated here a
 
 The ecosystem intentionally separates three concepts:
 
-```text id="m8v28p"
+```text
 GitHub repository → Deployment → Public domain
 ```
 
 Example:
 
-```text id="f70c71"
+```text
 game-tinyverse → tinyverse → tinyverse.fikrimarzuki.work
 ```
 
@@ -40,7 +40,7 @@ GitHub repository prefixes describe what a repository is internally and are not 
 
 Common values are defined once:
 
-```json id="e87a81"
+```json
 {
   "version": 1,
   "username": "Fikrimarzuki",
@@ -54,14 +54,14 @@ Project URLs and repository URLs can then be derived from this configuration.
 
 For example:
 
-```text id="e9otfd"
+```text
 username   = Fikrimarzuki
 repository = app-playdeck
 
 → github.com/Fikrimarzuki/app-playdeck
 ```
 
-```text id="6gnb7p"
+```text
 subdomain      = playdeck
 primary domain = fikrimarzuki.work
 
@@ -72,7 +72,7 @@ primary domain = fikrimarzuki.work
 
 A project defines its repository and one or more deployments.
 
-```json id="j5l0tp"
+```json
 {
   "name": "Playdeck",
   "repository": "app-playdeck",
@@ -92,13 +92,22 @@ Using deployments separately from repositories allows the registry to represent 
 * one project/repository has multiple deployments;
 * a repository has no public deployment.
 
+Every project requires `name`, `status` and `listing`:
+
+| Field     | Allowed values                                |
+| --------- | --------------------------------------------- |
+| `status`  | `active`, `paused`, `completed`, `archived` |
+| `listing` | `public`, `hidden`                            |
+
+`repository`, `path` and `deployments` are optional. A project that is not deployed simply omits `deployments` (never an empty object or empty `subdomain`). A deployment on the root domain uses `"subdomain": null` and may list extra subdomains in `aliases` (e.g. `["www"]`).
+
 ## Monorepo / Shared Repository Projects
 
 Some projects may share the same repository.
 
 For example, prototype projects can reference `lab-projects` while identifying their own path within that repository.
 
-```json id="pkwf1e"
+```json
 {
   "name": "Foodie Map",
   "repository": "lab-projects",
@@ -118,7 +127,7 @@ A project can expose multiple deployments.
 
 For example, an ecosystem such as Neuran may contain:
 
-```text id="i1s5f0"
+```text
 Neuran
 ├── Main
 ├── Admin
@@ -131,14 +140,32 @@ Each deployment can have its own public subdomain while still belonging to the s
 
 ## Repository Structure
 
-```text id="wxp83q"
+```text
 config-ecosystem/
 ├── config/
 │   └── production.json
+├── schema/
+│   └── ecosystem.schema.json
+├── scripts/
+│   └── validate.mjs
+├── package.json
 └── README.md
 ```
 
-Additional validation and automation may be introduced as the registry evolves.
+## Validation
+
+The config is checked in two passes:
+
+* `schema/ecosystem.schema.json` (JSON Schema) defines the structure: required fields, allowed values, hostname formats, and no unknown properties.
+* `scripts/validate.mjs` checks rules that span the whole config: no two deployments or aliases may resolve to the same hostname, deployment `name`s must be unique, and strings must not be whitespace-only.
+
+```sh
+pnpm install
+pnpm validate                                  # validates config/production.json
+node scripts/validate.mjs path/to/config.json  # validates another file
+```
+
+The command exits non-zero and lists each problem when the config is invalid.
 
 ## Usage
 
@@ -146,7 +173,7 @@ Applications can retrieve the production registry during development or as part 
 
 The intended flow is:
 
-```text id="e3sg7c"
+```text
 config-ecosystem
        │
        ▼
@@ -188,6 +215,6 @@ Current goals:
 
 1. Establish the project and deployment registry.
 2. Integrate the Developer Ecosystem Gateway as the first consumer.
-3. Add schema validation.
+3. ~~Add schema validation.~~ Done (`pnpm validate`).
 4. Integrate additional projects.
 5. Automate dependent project rebuilds.

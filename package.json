@@ -1,0 +1,11 @@
+{
+  "name": "config-ecosystem",
+  "private": true,
+  "description": "Central configuration and project registry for the developer ecosystem.",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0"
+  }
+}
