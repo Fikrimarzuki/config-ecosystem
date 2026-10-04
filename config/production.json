@@ -114,6 +114,18 @@
         }
       }
     },
+    "support": {
+      "name": "Support",
+      "status": "active",
+      "listing": "public",
+      "repository": "web-support",
+      "deployments": {
+        "main": {
+          "name": "support",
+          "subdomain": "support"
+        }
+      }
+    },
     "pageLayr": {
       "name": "Page Layr",
       "status": "active",
