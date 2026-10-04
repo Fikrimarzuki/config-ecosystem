@@ -76,6 +76,7 @@ A project defines its repository and one or more deployments.
 {
   "name": "Playdeck",
   "repository": "app-playdeck",
+  "repositoryVisibility": "private",
   "deployments": {
     "main": {
       "name": "playdeck",
@@ -99,7 +100,18 @@ Every project requires `name`, `status` and `listing`:
 | `status`  | `active`, `paused`, `completed`, `archived` |
 | `listing` | `public`, `hidden`                            |
 
-`repository`, `path` and `deployments` are optional. A project that is not deployed simply omits `deployments` (never an empty object or empty `subdomain`). A deployment on the root domain uses `"subdomain": null` and may list extra subdomains in `aliases` (e.g. `["www"]`).
+`repository`, `path` and `deployments` are optional. A project with no registered repository omits `repository`; a project with no registered live deployment omits `deployments` (never an empty object or empty `subdomain`). A deployment on the root domain uses `"subdomain": null` and may list extra subdomains in `aliases` (e.g. `["www"]`).
+
+### Independent facts
+
+Each field describes one thing, and none implies another:
+
+* `status`: the project's lifecycle.
+* `listing`: whether the project appears in ecosystem listings. `listing: public` does not mean the source code is public.
+* `repositoryVisibility`: whether the GitHub repository in `repository` can be publicly accessed (`public` or `private`). It is required when `repository` is set and not allowed otherwise. It describes the repository, not whether the project is listed, and `public` does not mean a deployment exists.
+* `deployments`: the registered live deployments.
+
+Projects that share a repository must declare the same `repositoryVisibility`.
 
 ## Monorepo / Shared Repository Projects
 
@@ -111,6 +123,7 @@ For example, prototype projects can reference `lab-projects` while identifying t
 {
   "name": "Foodie Map",
   "repository": "lab-projects",
+  "repositoryVisibility": "private",
   "path": "foodie-map",
   "deployments": {
     "main": {

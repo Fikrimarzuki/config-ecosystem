@@ -10,6 +10,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-gateway",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "gateway",
@@ -23,6 +24,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-cv",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "cv",
@@ -35,6 +37,7 @@
       "status": "paused",
       "listing": "public",
       "repository": "web-playground",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "playground",
@@ -47,6 +50,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-projects",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "projects",
@@ -59,6 +63,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-games",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "games",
@@ -71,6 +76,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-learning",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "learning",
@@ -83,6 +89,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-roadmap",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "roadmap",
@@ -95,6 +102,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-tools",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "tools",
@@ -107,6 +115,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-devtools",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "devtools",
@@ -119,6 +128,7 @@
       "status": "active",
       "listing": "public",
       "repository": "web-support",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "support",
@@ -131,6 +141,7 @@
       "status": "active",
       "listing": "public",
       "repository": "app-page-layr",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "page-layr",
@@ -143,6 +154,7 @@
       "status": "active",
       "listing": "public",
       "repository": "app-playdeck",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "playdeck",
@@ -155,6 +167,7 @@
       "status": "active",
       "listing": "public",
       "repository": "game-tinyverse",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "tinyverse",
@@ -167,6 +180,7 @@
       "status": "active",
       "listing": "public",
       "repository": "game-javascriptia",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "javascriptia",
@@ -178,55 +192,64 @@
       "name": "KodeStep",
       "status": "completed",
       "listing": "public",
-      "repository": "learn-kodestep"
+      "repository": "learn-kodestep",
+      "repositoryVisibility": "private"
     },
     "careerLens": {
       "name": "CareerLens",
       "status": "completed",
       "listing": "public",
-      "repository": "app-careerlens"
+      "repository": "app-career-lens",
+      "repositoryVisibility": "private"
     },
     "scriptoria": {
       "name": "Scriptoria",
       "status": "paused",
       "listing": "public",
-      "repository": "game-scriptoria"
+      "repository": "game-scriptoria",
+      "repositoryVisibility": "private"
     },
     "multiRepoClone": {
       "name": "Multiple Git Clone",
       "status": "completed",
       "listing": "public",
-      "repository": "tool-multi-repo-clone"
+      "repository": "tool-multiple-git-clone",
+      "repositoryVisibility": "public"
     },
     "inventory": {
       "name": "Inventory",
       "status": "paused",
       "listing": "public",
-      "repository": "app-inventory"
+      "repository": "app-inventory",
+      "repositoryVisibility": "private"
     },
     "cssTricks": {
       "name": "CSS Tricks",
       "status": "paused",
       "listing": "public",
-      "repository": "lab-css-tricks"
+      "repository": "lab-css-tricks",
+      "repositoryVisibility": "public"
     },
     "nodeApi": {
       "name": "Node API",
       "status": "paused",
       "listing": "public",
-      "repository": "lab-node-api"
+      "repository": "lab-node-api",
+      "repositoryVisibility": "public"
     },
     "frontendMonorepo": {
       "name": "Frontend Monorepo",
       "status": "paused",
       "listing": "public",
-      "repository": "lab-frontend-monorepo"
+      "repository": "lab-frontend-monorepo",
+      "repositoryVisibility": "private"
     },
     "foodieMap": {
       "name": "Foodie Map",
       "status": "paused",
       "listing": "public",
       "repository": "lab-projects",
+      "repositoryVisibility": "private",
       "path": "foodie-map",
       "deployments": {
         "main": {
@@ -240,6 +263,7 @@
       "status": "paused",
       "listing": "public",
       "repository": "lab-projects",
+      "repositoryVisibility": "private",
       "path": "tcg-hub",
       "deployments": {
         "main": {
@@ -253,6 +277,7 @@
       "status": "completed",
       "listing": "public",
       "repository": "lab-projects",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "nikahyuk-prototype",
@@ -265,6 +290,7 @@
       "status": "active",
       "listing": "public",
       "repository": "nikahyuk-app",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "nikahyuk",
@@ -288,6 +314,7 @@
       "status": "completed",
       "listing": "hidden",
       "repository": "wedding-invitation",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "wedding",
@@ -300,6 +327,7 @@
       "status": "paused",
       "listing": "public",
       "repository": "app-neuran",
+      "repositoryVisibility": "private",
       "deployments": {
         "main": {
           "name": "neuran",

@@ -53,6 +53,10 @@
     "project": {
       "type": "object",
       "required": ["name", "status", "listing"],
+      "dependentRequired": {
+        "repository": ["repositoryVisibility"],
+        "repositoryVisibility": ["repository"]
+      },
       "additionalProperties": false,
       "properties": {
         "name": {
@@ -68,6 +72,10 @@
         "repository": {
           "description": "GitHub repository name under the configured username. Omit when the project has no repository.",
           "$ref": "#/$defs/nonEmptyString"
+        },
+        "repositoryVisibility": {
+          "description": "Whether the repository can be publicly accessed. Required with, and only allowed with, repository. Independent of listing, status and deployments.",
+          "enum": ["public", "private"]
         },
         "path": {
           "description": "Path of the project inside a shared repository.",

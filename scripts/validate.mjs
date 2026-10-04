@@ -52,6 +52,8 @@ function formatSchemaError(error) {
   switch (error.keyword) {
     case "required":
       return `${at}: missing required property "${error.params.missingProperty}"`;
+    case "dependentRequired":
+      return `${at}: "${error.params.property}" requires "${error.params.missingProperty}"`;
     case "additionalProperties":
       return `${at}: unknown property "${error.params.additionalProperty}"`;
     case "enum":
@@ -102,6 +104,7 @@ function validateSemantics(config) {
   const primary = config.domains.primary.toLowerCase();
   const hostnames = new Map(); // hostname → location that claimed it
   const deploymentNames = new Map(); // deployment name → location that claimed it
+  const repositories = new Map(); // repository name (GitHub names are case-insensitive) → first declaring project
 
   function claimHostname(hostname, location) {
     if (hostname.length > 253) {
@@ -117,6 +120,20 @@ function validateSemantics(config) {
   }
 
   for (const [projectKey, project] of Object.entries(config.projects)) {
+    if (project.repository !== undefined) {
+      // Projects sharing a repository must agree on its visibility.
+      const repository = project.repository.toLowerCase();
+      const first = repositories.get(repository);
+      if (!first) {
+        repositories.set(repository, { projectKey, visibility: project.repositoryVisibility });
+      } else if (first.visibility !== project.repositoryVisibility) {
+        errors.push(
+          `conflicting repositoryVisibility for repository "${project.repository}": ` +
+            `projects.${first.projectKey} is "${first.visibility}" but projects.${projectKey} is "${project.repositoryVisibility}"`,
+        );
+      }
+    }
+
     for (const [deploymentKey, deployment] of Object.entries(project.deployments ?? {})) {
       const at = `projects.${projectKey}.deployments.${deploymentKey}`;
 
