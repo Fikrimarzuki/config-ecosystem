@@ -223,8 +223,8 @@ config-ecosystem/
 ├── dist/
 │   └── ecosystem.json           # generated — future canonical consumer target
 ├── schema/
-│   ├── ecosystem.schema.json    # schema for the assembled config
-│   └── project.schema.json      # schema for individual project files
+│   ├── ecosystem.schema.json    # assembled config; references project.schema.json
+│   └── project.schema.json      # all project rules (defined once) + the source-file id
 ├── scripts/
 │   ├── build.mjs                # assembles modular sources into outputs
 │   └── validate.mjs             # validates the assembled config
@@ -254,6 +254,8 @@ The build enforces:
 
 * `config/production.json` — the assembled config at the existing consumer URL (backward-compat);
 * `dist/ecosystem.json` — canonical output for future consumer migration.
+
+Project rules live only in `schema/project.schema.json`. Its `$defs/project` is the project as it appears in the assembled config (no `id`), and the ecosystem schema references it; the schema itself describes a source file, which adds the required `id`. To add or change a project field, edit `project.schema.json` once; both the source files and the assembled output pick it up. References are resolved locally by Ajv, with no network access.
 
 GitHub Actions runs `pnpm build && pnpm validate` on every push and pull request to `main`.
 

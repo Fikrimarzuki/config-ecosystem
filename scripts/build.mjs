@@ -78,6 +78,8 @@ function formatProjectError(err) {
       return `${at}: "${err.params.property}" requires "${err.params.missingProperty}"`;
     case "additionalProperties":
       return `${at}: unknown property "${err.params.additionalProperty}"`;
+    case "unevaluatedProperties":
+      return `${at}: unknown property "${err.params.unevaluatedProperty}"`;
     case "enum":
       return `${at}: must be one of ${err.params.allowedValues.map((v) => JSON.stringify(v)).join(", ")} (got ${JSON.stringify(err.data)})`;
     case "const":

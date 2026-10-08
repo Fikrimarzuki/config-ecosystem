@@ -13,6 +13,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const schemaPath = resolve(root, "schema/ecosystem.schema.json");
+const projectSchemaPath = resolve(root, "schema/project.schema.json");
 const configPath = resolve(process.argv[2] ?? resolve(root, "config/production.json"));
 const displayPath = relative(process.cwd(), configPath).replaceAll("\\", "/") || configPath;
 
@@ -56,6 +57,8 @@ function formatSchemaError(error) {
       return `${at}: "${error.params.property}" requires "${error.params.missingProperty}"`;
     case "additionalProperties":
       return `${at}: unknown property "${error.params.additionalProperty}"`;
+    case "unevaluatedProperties":
+      return `${at}: unknown property "${error.params.unevaluatedProperty}"`;
     case "enum":
       return `${at}: must be one of ${error.params.allowedValues.map((v) => JSON.stringify(v)).join(", ")} (got ${JSON.stringify(error.data)})`;
     case "const":
@@ -79,6 +82,9 @@ function formatSchemaError(error) {
 
 function validateSchema(config) {
   const ajv = new Ajv2020({ allErrors: true, verbose: true, strict: true });
+  // The ecosystem schema references the shared project definitions by relative URI;
+  // registering the schema locally means nothing is ever fetched.
+  ajv.addSchema(readJson(projectSchemaPath, "project schema"));
   const validate = ajv.compile(readJson(schemaPath, "schema"));
   if (validate(config)) return [];
   return [...new Set(validate.errors.map(formatSchemaError).filter(Boolean))];
