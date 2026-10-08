@@ -68,6 +68,29 @@ primary domain = fikrimarzuki.work
 → playdeck.fikrimarzuki.work
 ```
 
+### Profile and ecosystem identity
+
+Two optional objects in `config/global.json` carry shared identity. They are additive: `version`, `username`, `domains` and `projects` are unchanged.
+
+```json
+{
+  "profile": {
+    "name": "Fikri Marzuki",
+    "links": {
+      "github": "https://github.com/Fikrimarzuki"
+    }
+  },
+  "ecosystem": {
+    "name": "FM Work"
+  }
+}
+```
+
+* `profile` is the personal identity of the owner. `name` is required. `links` holds the canonical social links, keyed by platform (`github`, `linkedin`, `website`, or any other key). Each value must be an absolute `https://` URL. New platforms need no schema or code change; add only links that really exist.
+* `ecosystem` is the shared brand identity (`name` is required), separate from the person.
+
+Consumers (Gateway, CV, Support, ...) should read these fields instead of hardcoding names and social URLs, and render whichever links are present. Content that only one app needs (page copy, layout, labels) stays in that app. To change shared metadata, edit `config/global.json`, run `pnpm build`, and commit the regenerated files.
+
 ## Project Model
 
 A project defines its repository and one or more deployments.
@@ -159,7 +182,7 @@ config-ecosystem/
 │   └── workflows/
 │       └── validate.yml
 ├── config/
-│   ├── global.json              # global config: version, username, domains
+│   ├── global.json              # global config: version, username, domains, profile, ecosystem
 │   ├── production.json          # generated — assembled consumer output (committed)
 │   └── projects/
 │       ├── gateway.json

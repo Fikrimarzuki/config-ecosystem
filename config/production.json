@@ -4,6 +4,15 @@
   "domains": {
     "primary": "fikrimarzuki.work"
   },
+  "profile": {
+    "name": "Fikri Marzuki",
+    "links": {
+      "github": "https://github.com/Fikrimarzuki"
+    }
+  },
+  "ecosystem": {
+    "name": "FM Work"
+  },
   "projects": {
     "careerLens": {
       "name": "CareerLens",
@@ -239,7 +248,20 @@
           "name": "playdeck",
           "subdomain": "playdeck"
         }
-      }
+      },
+      "description": {
+        "en": "Turn presentations into playable worlds."
+      },
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Phaser"
+      ],
+      "tags": [
+        "presentation",
+        "game"
+      ]
     },
     "playground": {
       "name": "Playground",

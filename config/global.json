@@ -3,5 +3,14 @@
   "username": "Fikrimarzuki",
   "domains": {
     "primary": "fikrimarzuki.work"
+  },
+  "profile": {
+    "name": "Fikri Marzuki",
+    "links": {
+      "github": "https://github.com/Fikrimarzuki"
+    }
+  },
+  "ecosystem": {
+    "name": "FM Work"
   }
 }
