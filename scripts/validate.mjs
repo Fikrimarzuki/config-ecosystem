@@ -120,6 +120,19 @@ function validateSemantics(config) {
   }
 
   for (const [projectKey, project] of Object.entries(config.projects)) {
+    // Technology names are free-form, so "React" and "react" count as the same entry.
+    const technologies = new Map(); // lowercased name → index of first occurrence
+    (project.technologies ?? []).forEach((name, index) => {
+      const key = name.trim().toLowerCase();
+      if (technologies.has(key)) {
+        errors.push(
+          `duplicate technology "${name}": projects.${projectKey}.technologies[${technologies.get(key)}] and projects.${projectKey}.technologies[${index}]`,
+        );
+      } else {
+        technologies.set(key, index);
+      }
+    });
+
     if (project.repository !== undefined) {
       // Projects sharing a repository must agree on its visibility.
       const repository = project.repository.toLowerCase();

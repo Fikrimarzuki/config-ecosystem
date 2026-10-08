@@ -136,6 +136,38 @@ Each field describes one thing, and none implies another:
 
 Projects that share a repository must declare the same `repositoryVisibility`.
 
+### Project content
+
+A project file in `config/projects/` can carry reusable content. Every field below is optional, and projects without them stay valid.
+
+```json
+{
+  "tagline": {
+    "en": "Presentations you can play.",
+    "id": "Presentasi yang bisa dimainkan."
+  },
+  "description": {
+    "en": "Turn presentations into interactive worlds.",
+    "id": "Ubah presentasi menjadi dunia interaktif."
+  },
+  "technologies": ["React", "TypeScript", "Phaser"],
+  "tags": ["presentation", "interactive", "education"],
+  "links": {
+    "documentation": "https://example.com/docs"
+  }
+}
+```
+
+(Illustrative values. `playdeck` currently has only the fields that its repository confirms.)
+
+* **Localized text** (`tagline`, `description`): an object with `en` (required) and `id` (optional). Other locale keys are rejected, and empty or whitespace-only text is rejected. Falling back to English when `id` is missing is a convention for consumers to implement; this repository stores the data and does not resolve locales.
+* **`technologies`**: display names such as `"Next.js"`, kept in the order given. They are free-form, but duplicates are rejected ignoring case (`React` and `react`). There is no central technology registry.
+* **`tags`**: lowercase kebab-case identifiers (`live-demo`) for grouping and filtering, kept in the order given, with no duplicates. Use technologies for what a project is built with and tags for what it is about. There is no category hierarchy.
+* **`links`**: extra project links such as `documentation` or `figma`, keyed by a lowercase name, each an absolute `https://` URL. Don't add the repository or the live site here. The repository URL comes from `username` + `repository`, and deployment URLs come from `subdomain` + `domains.primary`, so repeating them would create a second copy that can drift out of sync.
+* A present `technologies`, `tags` or `links` can't be empty; leave it out instead.
+
+To add content to an existing project, edit `config/projects/<id>.json`, run `pnpm build`, and commit the project file together with the regenerated `config/production.json` and `dist/ecosystem.json`. Only add what you can verify.
+
 ## Monorepo / Shared Repository Projects
 
 Some projects may share the same repository.

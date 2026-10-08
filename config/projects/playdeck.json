@@ -10,5 +10,18 @@
       "name": "playdeck",
       "subdomain": "playdeck"
     }
-  }
+  },
+  "description": {
+    "en": "Turn presentations into playable worlds."
+  },
+  "technologies": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Phaser"
+  ],
+  "tags": [
+    "presentation",
+    "game"
+  ]
 }

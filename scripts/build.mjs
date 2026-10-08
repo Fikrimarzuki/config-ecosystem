@@ -86,6 +86,14 @@ function formatProjectError(err) {
     case "minProperties":
     case "minItems":
       return err.params.limit === 1 ? `${at}: must not be empty` : `${at}: ${err.message}`;
+    case "propertyNames":
+      return null; // reported via the nested pattern error
+    case "pattern":
+    case "maxLength":
+      if (err.propertyName !== undefined) {
+        return `${at}: key "${err.propertyName}" ${err.parentSchema.description ?? err.message}`;
+      }
+      return `${at}: ${err.parentSchema.description ?? err.message} (got ${JSON.stringify(err.data)})`;
     default:
       return `${at}: ${err.message}`;
   }
