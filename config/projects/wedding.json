@@ -1,0 +1,14 @@
+{
+  "id": "wedding",
+  "name": "Wedding",
+  "status": "completed",
+  "listing": "hidden",
+  "repository": "wedding-invitation",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "wedding",
+      "subdomain": "wedding"
+    }
+  }
+}

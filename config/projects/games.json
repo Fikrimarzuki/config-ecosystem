@@ -1,0 +1,14 @@
+{
+  "id": "games",
+  "name": "Games",
+  "status": "active",
+  "listing": "public",
+  "repository": "web-games",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "games",
+      "subdomain": "games"
+    }
+  }
+}

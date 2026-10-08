@@ -155,30 +155,54 @@ Each deployment can have its own public subdomain while still belonging to the s
 
 ```text
 config-ecosystem/
+├── .github/
+│   └── workflows/
+│       └── validate.yml
 ├── config/
-│   └── production.json
+│   ├── global.json              # global config: version, username, domains
+│   ├── production.json          # generated — assembled consumer output (committed)
+│   └── projects/
+│       ├── gateway.json
+│       ├── playdeck.json
+│       └── ...                  # one file per project (id must match filename)
+├── dist/
+│   └── ecosystem.json           # generated — future canonical consumer target
 ├── schema/
-│   └── ecosystem.schema.json
+│   ├── ecosystem.schema.json    # schema for the assembled config
+│   └── project.schema.json      # schema for individual project files
 ├── scripts/
-│   └── validate.mjs
+│   ├── build.mjs                # assembles modular sources into outputs
+│   └── validate.mjs             # validates the assembled config
 ├── package.json
 └── README.md
 ```
 
-## Validation
+## Build and Validation
 
-The config is checked in two passes:
-
-* `schema/ecosystem.schema.json` (JSON Schema) defines the structure: required fields, allowed values, hostname formats, and no unknown properties.
-* `scripts/validate.mjs` checks rules that span the whole config: no two deployments or aliases may resolve to the same hostname, deployment `name`s must be unique, and strings must not be whitespace-only.
+Project definitions live as individual JSON files in `config/projects/`. The build script assembles them with `config/global.json` into the canonical consumer-facing outputs.
 
 ```sh
 pnpm install
-pnpm validate                                  # validates config/production.json
-node scripts/validate.mjs path/to/config.json  # validates another file
+pnpm build      # assemble modular sources → config/production.json + dist/ecosystem.json
+pnpm validate   # validate the assembled config
 ```
 
-The command exits non-zero and lists each problem when the config is invalid. GitHub Actions runs it on every push and pull request to `main`.
+The build enforces:
+
+* each project file's `id` must match its filename;
+* no duplicate project IDs;
+* each project file validates against `schema/project.schema.json`;
+* the assembled config validates against `schema/ecosystem.schema.json`;
+* all cross-project semantic rules (unique hostnames, deployment names, shared-repo visibility, etc.).
+
+**Generated files** (both committed so consumers can fetch them from GitHub raw URLs):
+
+* `config/production.json` — the assembled config at the existing consumer URL (backward-compat);
+* `dist/ecosystem.json` — canonical output for future consumer migration.
+
+GitHub Actions runs `pnpm build && pnpm validate` on every push and pull request to `main`.
+
+CI also fails if `config/production.json` or `dist/ecosystem.json` differ from what `pnpm build` produces. After changing `config/global.json` or anything in `config/projects/`, run `pnpm build` and commit the regenerated files. Don't edit the generated files by hand.
 
 ## Usage
 

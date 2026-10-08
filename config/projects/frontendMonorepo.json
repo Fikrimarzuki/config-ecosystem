@@ -1,0 +1,8 @@
+{
+  "id": "frontendMonorepo",
+  "name": "Frontend Monorepo",
+  "status": "paused",
+  "listing": "public",
+  "repository": "lab-frontend-monorepo",
+  "repositoryVisibility": "private"
+}

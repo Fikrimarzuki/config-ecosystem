@@ -1,0 +1,14 @@
+{
+  "id": "playdeck",
+  "name": "Playdeck",
+  "status": "active",
+  "listing": "public",
+  "repository": "app-playdeck",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "playdeck",
+      "subdomain": "playdeck"
+    }
+  }
+}

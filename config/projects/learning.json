@@ -1,0 +1,14 @@
+{
+  "id": "learning",
+  "name": "Learning",
+  "status": "active",
+  "listing": "public",
+  "repository": "web-learning",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "learning",
+      "subdomain": "learn"
+    }
+  }
+}

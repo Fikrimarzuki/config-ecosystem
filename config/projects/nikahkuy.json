@@ -1,0 +1,12 @@
+{
+  "id": "nikahkuy",
+  "name": "Nikah Kuy",
+  "status": "completed",
+  "listing": "public",
+  "deployments": {
+    "main": {
+      "name": "nikahkuy",
+      "subdomain": "nikahkuy"
+    }
+  }
+}

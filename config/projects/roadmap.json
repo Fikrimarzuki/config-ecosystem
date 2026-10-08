@@ -1,0 +1,14 @@
+{
+  "id": "roadmap",
+  "name": "Roadmap",
+  "status": "active",
+  "listing": "public",
+  "repository": "web-roadmap",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "roadmap",
+      "subdomain": "roadmap"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "neuran",
+  "name": "Neuran",
+  "status": "paused",
+  "listing": "public",
+  "repository": "app-neuran",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "neuran",
+      "subdomain": "neuran"
+    },
+    "admin": {
+      "name": "neuran-admin",
+      "subdomain": "neuran-admin"
+    },
+    "lms": {
+      "name": "neuran-lms",
+      "subdomain": "neuran-lms"
+    },
+    "skill": {
+      "name": "neuran-skill",
+      "subdomain": "neuran-skill"
+    },
+    "social": {
+      "name": "neuran-social",
+      "subdomain": "neuran-social"
+    }
+  }
+}

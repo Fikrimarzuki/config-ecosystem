@@ -1,0 +1,8 @@
+{
+  "id": "inventory",
+  "name": "Inventory",
+  "status": "paused",
+  "listing": "public",
+  "repository": "app-inventory",
+  "repositoryVisibility": "private"
+}

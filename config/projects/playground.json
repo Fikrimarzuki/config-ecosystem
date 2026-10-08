@@ -1,0 +1,14 @@
+{
+  "id": "playground",
+  "name": "Playground",
+  "status": "paused",
+  "listing": "public",
+  "repository": "web-playground",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "playground",
+      "subdomain": "play"
+    }
+  }
+}

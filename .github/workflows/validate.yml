@@ -30,4 +30,20 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # Assemble modular project sources → dist/ecosystem.json + config/production.json
+      - run: pnpm build
+
+      # Validate the assembled config
       - run: pnpm validate
+
+      # The generated files are committed (consumers fetch them from GitHub), so
+      # they must match what the build produces from the sources.
+      - name: Check generated files are up to date
+        run: |
+          if [ -n "$(git status --porcelain -- config/production.json dist/ecosystem.json)" ]; then
+            echo "::error::Generated files are out of date: config/production.json and/or dist/ecosystem.json differ from what 'pnpm build' produces."
+            echo "Run 'pnpm build' locally and commit the regenerated files. Do not edit them by hand; edit config/global.json or config/projects/*.json instead."
+            git status --short -- config/production.json dist/ecosystem.json
+            git --no-pager diff -- config/production.json dist/ecosystem.json | head -50
+            exit 1
+          fi

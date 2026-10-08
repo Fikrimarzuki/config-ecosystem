@@ -1,0 +1,14 @@
+{
+  "id": "javascriptia",
+  "name": "JavaScriptia",
+  "status": "active",
+  "listing": "public",
+  "repository": "game-javascriptia",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "javascriptia",
+      "subdomain": "javascriptia"
+    }
+  }
+}

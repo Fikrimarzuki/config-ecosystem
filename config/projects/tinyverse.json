@@ -1,0 +1,14 @@
+{
+  "id": "tinyverse",
+  "name": "Tinyverse",
+  "status": "active",
+  "listing": "public",
+  "repository": "game-tinyverse",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "tinyverse",
+      "subdomain": "tinyverse"
+    }
+  }
+}

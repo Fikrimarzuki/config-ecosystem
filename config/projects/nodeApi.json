@@ -1,0 +1,8 @@
+{
+  "id": "nodeApi",
+  "name": "Node API",
+  "status": "paused",
+  "listing": "public",
+  "repository": "lab-node-api",
+  "repositoryVisibility": "public"
+}

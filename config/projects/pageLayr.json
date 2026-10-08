@@ -1,0 +1,14 @@
+{
+  "id": "pageLayr",
+  "name": "Page Layr",
+  "status": "active",
+  "listing": "public",
+  "repository": "app-page-layr",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "page-layr",
+      "subdomain": "page-layr"
+    }
+  }
+}

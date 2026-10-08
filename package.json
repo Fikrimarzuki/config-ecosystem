@@ -4,7 +4,8 @@
   "packageManager": "pnpm@11.17.0",
   "description": "Central configuration and project registry for the developer ecosystem.",
   "scripts": {
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "build": "node scripts/build.mjs"
   },
   "devDependencies": {
     "ajv": "^8.20.0"

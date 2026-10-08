@@ -1,0 +1,15 @@
+{
+  "id": "foodieMap",
+  "name": "Foodie Map",
+  "status": "paused",
+  "listing": "public",
+  "repository": "lab-projects",
+  "repositoryVisibility": "private",
+  "path": "foodie-map",
+  "deployments": {
+    "main": {
+      "name": "foodie-map",
+      "subdomain": "foodie-map"
+    }
+  }
+}

@@ -1,1 +1,4 @@
 node_modules/
+
+# Temporary file created by build.mjs during validation; never committed.
+dist/.ecosystem.tmp.json

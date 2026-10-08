@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project",
+  "description": "Individual project definition in the ecosystem registry. The id must match the filename (without .json) and the key used in the assembled ecosystem config.",
+  "type": "object",
+  "required": ["id", "name", "status", "listing"],
+  "dependentRequired": {
+    "repository": ["repositoryVisibility"],
+    "repositoryVisibility": ["repository"]
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "description": "Canonical project identifier. Must match the filename (without .json) and the key in the assembled ecosystem config.",
+      "$ref": "#/$defs/key"
+    },
+    "name": {
+      "description": "Human-readable project name.",
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "status": {
+      "enum": ["active", "paused", "completed", "archived"]
+    },
+    "listing": {
+      "enum": ["public", "hidden"]
+    },
+    "repository": {
+      "description": "GitHub repository name under the configured username. Omit when the project has no repository.",
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "repositoryVisibility": {
+      "description": "Whether the repository can be publicly accessed. Required with, and only allowed with, repository. Independent of listing, status and deployments.",
+      "enum": ["public", "private"]
+    },
+    "path": {
+      "description": "Path of the project inside a shared repository.",
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "deployments": {
+      "description": "Public deployments. Omit when the project is not deployed.",
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "$ref": "#/$defs/key" },
+      "additionalProperties": { "$ref": "#/$defs/deployment" }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "key": {
+      "description": "must not be empty or whitespace-only",
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "subdomain": {
+      "description": "must be one or more lowercase DNS labels separated by '.' (a-z, 0-9, '-', not starting or ending with '-')",
+      "type": "string",
+      "maxLength": 253,
+      "pattern": "^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$"
+    },
+    "deployment": {
+      "type": "object",
+      "required": ["name", "subdomain"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Deployment identity, unique across the ecosystem.",
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "subdomain": {
+          "description": "must be null (apex/root domain) or one or more lowercase DNS labels separated by '.' (a-z, 0-9, '-', not starting or ending with '-')",
+          "type": ["string", "null"],
+          "maxLength": 253,
+          "pattern": "^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$"
+        },
+        "aliases": {
+          "description": "Additional subdomains that resolve to this deployment.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/subdomain" }
+        }
+      }
+    }
+  }
+}

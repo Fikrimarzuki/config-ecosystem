@@ -1,0 +1,8 @@
+{
+  "id": "multiRepoClone",
+  "name": "Multiple Git Clone",
+  "status": "completed",
+  "listing": "public",
+  "repository": "tool-multiple-git-clone",
+  "repositoryVisibility": "public"
+}

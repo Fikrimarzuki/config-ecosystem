@@ -1,0 +1,14 @@
+{
+  "id": "nikahyuk",
+  "name": "Nikah Yuk",
+  "status": "active",
+  "listing": "public",
+  "repository": "nikahyuk-app",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "nikahyuk",
+      "subdomain": "nikahyuk"
+    }
+  }
+}

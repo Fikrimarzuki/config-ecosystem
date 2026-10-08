@@ -1,0 +1,8 @@
+{
+  "id": "careerLens",
+  "name": "CareerLens",
+  "status": "completed",
+  "listing": "public",
+  "repository": "app-career-lens",
+  "repositoryVisibility": "private"
+}
