@@ -1,0 +1,15 @@
+{
+  "id": "devtools",
+  "name": "DevTools",
+  "status": "active",
+  "listing": "public",
+  "destination": "tools",
+  "repository": "web-devtools",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "devtools",
+      "subdomain": "devtools"
+    }
+  }
+}

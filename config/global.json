@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "username": "Fikrimarzuki",
+  "domains": {
+    "primary": "fikrimarzuki.work"
+  },
+  "profile": {
+    "name": "M Fikri Marzuki",
+    "title": "Full-Stack Software Engineer",
+    "email": "marzuki.fikri@gmail.com",
+    "links": {
+      "github": "https://github.com/Fikrimarzuki",
+      "linkedin": "https://www.linkedin.com/in/fikri-marzuki/",
+      "gitlab": "https://gitlab.com/fikrimarzuki"
+    },
+    "assets": {
+      "resume": "assets/profile/cv.pdf",
+      "logo": "assets/profile/logo.png",
+      "avatar": "assets/profile/avatar.jpg"
+    }
+  },
+  "ecosystem": {
+    "name": "FM Work"
+  }
+}

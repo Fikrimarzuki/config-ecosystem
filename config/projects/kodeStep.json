@@ -1,0 +1,15 @@
+{
+  "id": "kodeStep",
+  "name": "KodeStep",
+  "status": "completed",
+  "listing": "public",
+  "destination": "learning",
+  "repository": "learn-kodestep",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "kodestep",
+      "subdomain": "kodestep"
+    }
+  }
+}

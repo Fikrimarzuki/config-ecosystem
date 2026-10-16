@@ -1,0 +1,15 @@
+{
+  "id": "support",
+  "name": "Support",
+  "status": "active",
+  "listing": "public",
+  "destination": "moon",
+  "repository": "web-support",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "support",
+      "subdomain": "support"
+    }
+  }
+}

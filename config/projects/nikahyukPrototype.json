@@ -1,0 +1,16 @@
+{
+  "id": "nikahyukPrototype",
+  "name": "Nikah Yuk Prototype",
+  "status": "completed",
+  "listing": "public",
+  "destination": "products",
+  "repository": "lab-projects",
+  "repositoryVisibility": "private",
+  "path": "nikah-yuk",
+  "deployments": {
+    "main": {
+      "name": "nikahyuk-prototype",
+      "subdomain": "nikahyuk-prototype"
+    }
+  }
+}

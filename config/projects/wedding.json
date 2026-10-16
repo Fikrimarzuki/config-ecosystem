@@ -1,0 +1,9 @@
+{
+  "id": "wedding",
+  "name": "Wedding",
+  "status": "completed",
+  "listing": "hidden",
+  "destination": "platforms",
+  "repository": "wedding-invitation",
+  "repositoryVisibility": "private"
+}

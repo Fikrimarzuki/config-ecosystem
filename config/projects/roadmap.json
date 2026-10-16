@@ -1,0 +1,15 @@
+{
+  "id": "roadmap",
+  "name": "Learning Roadmap",
+  "status": "active",
+  "listing": "public",
+  "destination": "learning",
+  "repository": "web-roadmap",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "roadmap",
+      "subdomain": "roadmap"
+    }
+  }
+}

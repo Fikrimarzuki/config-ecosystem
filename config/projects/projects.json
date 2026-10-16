@@ -1,0 +1,15 @@
+{
+  "id": "projects",
+  "name": "Projects",
+  "status": "active",
+  "listing": "public",
+  "destination": "platforms",
+  "repository": "web-projects",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "projects",
+      "subdomain": "projects"
+    }
+  }
+}

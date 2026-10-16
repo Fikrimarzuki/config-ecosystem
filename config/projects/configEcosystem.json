@@ -1,0 +1,12 @@
+{
+  "id": "configEcosystem",
+  "name": "Config Ecosystem",
+  "status": "active",
+  "listing": "public",
+  "destination": "central-station",
+  "repository": "config-ecosystem",
+  "repositoryVisibility": "public",
+  "description": {
+    "en": "Centralized project metadata, schemas, validation, and generated configuration for my developer ecosystem."
+  }
+}

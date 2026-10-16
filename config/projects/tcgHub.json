@@ -1,0 +1,16 @@
+{
+  "id": "tcgHub",
+  "name": "TCG Hub",
+  "status": "paused",
+  "listing": "public",
+  "destination": "products",
+  "repository": "lab-projects",
+  "repositoryVisibility": "private",
+  "path": "tcg-hub-starter",
+  "deployments": {
+    "main": {
+      "name": "tcg-hub",
+      "subdomain": "tcg-hub"
+    }
+  }
+}
