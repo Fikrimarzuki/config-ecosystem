@@ -34,7 +34,7 @@ Status is based on repository evidence, not intent. "Verified" means the consume
 
 | Consumer | Status | Evidence |
 | --- | --- | --- |
-| `web-gateway` | Verified integration, compatible | Syncs `config/production.json` and the resume asset from `main` before every dev, build, typecheck and test run, and fails the build with no fallback. Handles subdomain, apex and alias deployments and explicit `deployment.url`, and links only public repositories. Parses the current configuration, but its resolver doesn't expose `career`, `origins` or `concepts` yet (Gateway Universe integration, G7, is pending). |
+| `web-gateway` | M8.4a.1b compatibility update required before consuming the new artifact | Uses a strict build-time schema and public projection; Career remains withheld. The new additive `careerPublication` property is rejected by its current vendored schema. Update validation/schema packaging and publication integration in Gateway M8.4a.1b before publishing this artifact; do not relax validation or infer grants from listing. |
 | `web-support` | Verified integration, compatible | Syncs `dist/ecosystem.json` before dev, build, typecheck and test, with no fallback. Validates and copies only what it uses (`version`, `domains.primary`, `ecosystem.name`, and each project's `status`, `listing`, `name`, `destination`, `deployments.main` and `description`) into a minimal generated file; it ignores the other collections, repositories, assets and taglines. Its contact-form selector offers public, active projects only, excludes Support by its project ID, and fails the build on an unknown destination. It resolves `deployments.main` URLs per section 3 of the integration guide. |
 | `web-cv` | Verified integration, **blocked** for automation | Syncs `config/production.json` at build time and accepts the current structure, but has known limitations (see below). Consumer fixes are tracked separately. |
 | Projects, Games, Learning (`web-projects`, `web-games`, `web-learning`) | Planned | Not yet integrated; not in the notification registry. |
@@ -83,7 +83,7 @@ A consumer must satisfy all of these before automatic updates are enabled for it
 
 ### Known compatibility issues
 
-* **Gateway** has no known incompatibility. It handles `deployment.url` (used as written). It doesn't read `career`, `origins` or `concepts` yet; that is planned work (G7), not a defect.
+* **Gateway** requires the explicit M8.4a.1b update for `careerPublication`; its current strict schema rejects the new property. Existing deployment resolution is unchanged. See the [Career publication compatibility requirements](../diagnostics/m8.4a.1a/README.md#gateway-m84a1b-and-backward-compatibility). No Gateway files are changed by this canonical-contract milestone.
 * **`web-cv`** has three known limitations:
   * On a failed sync it falls back to its committed snapshot, which can serve stale data (contrary to section 6 of the integration guide).
   * Its deployment resolver ignores `deployment.url` and builds a URL from `subdomain`, so an external deployment would resolve to the apex domain. No project it links uses an external deployment today.

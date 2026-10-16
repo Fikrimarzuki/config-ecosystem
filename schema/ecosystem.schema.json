@@ -98,6 +98,10 @@
       "description": "Career collections (experience, freelance, assessments). Always present; each collection may be empty.",
       "$ref": "career.schema.json"
     },
+    "careerPublication": {
+      "description": "Optional independent Gateway Career permissions. Absence denies all publication; listing alone never approves content.",
+      "$ref": "career-publication.schema.json"
+    },
     "origins": {
       "description": "Origins archive: curated early-development entries. Always present; may be empty.",
       "$ref": "origins.schema.json"

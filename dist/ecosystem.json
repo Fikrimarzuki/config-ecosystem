@@ -1225,5 +1225,12 @@
       "kind": "placeholder",
       "order": 40
     }
-  ]
+  ],
+  "careerPublication": {
+    "experience": [],
+    "work": [],
+    "freelance": [],
+    "components": [],
+    "assessments": []
+  }
 }

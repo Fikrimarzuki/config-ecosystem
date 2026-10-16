@@ -157,6 +157,6 @@ describe("generated files", () => {
   test("the committed output matches what the build assembles from this repository", () =>
     assert.equal(production, JSON.stringify(assemble(), null, 2) + "\n"));
 
-  test("the output keeps every existing top-level field and adds career, origins, then concepts, last", () =>
-    assert.deepEqual(Object.keys(JSON.parse(production)), ["version", "username", "domains", "profile", "ecosystem", "projects", "career", "origins", "concepts"]));
+  test("the output keeps every existing top-level field and appends careerPublication", () =>
+    assert.deepEqual(Object.keys(JSON.parse(production)), ["version", "username", "domains", "profile", "ecosystem", "projects", "career", "origins", "concepts", "careerPublication"]));
 });

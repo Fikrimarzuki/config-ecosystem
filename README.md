@@ -529,7 +529,9 @@ Project rules live only in `schema/project.schema.json`. Its `$defs/project` is 
 
 GitHub Actions runs `pnpm build`, `pnpm validate` and `pnpm test` on every push and pull request to `main`.
 
-CI also fails if `config/production.json` or `dist/ecosystem.json` differ from what `pnpm build` produces. After changing `config/global.json` or any source collection (`config/projects/`, `config/career/`, `config/origins/` or `config/concepts/`), run `pnpm build` and commit the regenerated files together with the sources. Don't edit the generated files by hand.
+CI also fails if `config/production.json` or `dist/ecosystem.json` differ from what `pnpm build` produces. After changing `config/global.json`, `config/career-publication.json` or any source collection (`config/projects/`, `config/career/`, `config/origins/` or `config/concepts/`), run `pnpm build` and commit the regenerated files together with the sources. Don't edit the generated files by hand.
+
+Gateway Career publication is a separate, default-deny contract in `config/career-publication.json`, validated by `schema/career-publication.schema.json` and cross-record semantic checks. All five grant lists initially remain empty. Public listing, parent approval and public repositories never approve other fields or children. See the [M8.4a.1a contract](docs/diagnostics/m8.4a.1a/README.md) for field selectors, link restrictions and the required coordinated Gateway M8.4a.1b schema update. No Career content is newly approved.
 
 The build also rejects unexpected source locations instead of skipping them: a folder under `config/` other than `projects`, `career`, `origins` and `concepts` (for example a mistyped `config/concept/`), and anything in a collection folder other than lowercase `<id>.json` files and hidden placeholder files such as `.gitkeep` (for example `example.JSON`, `notes.md` or a nested folder).
 

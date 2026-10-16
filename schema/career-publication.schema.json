@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://config-ecosystem.invalid/schema/career-publication.schema.json",
+  "title": "Gateway Career publication permissions",
+  "description": "Default-deny field grants, separate from canonical listing. Each record/child is independent. References, duplicates, field presence and public listing are checked by validate.mjs. Never serialize these build-only selectors as public Career content.",
+  "type": "object",
+  "required": ["experience", "work", "freelance", "components", "assessments"],
+  "additionalProperties": false,
+  "properties": {
+    "experience": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/experience" } },
+    "work": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/work" } },
+    "freelance": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/freelance" } },
+    "components": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/component" } },
+    "assessments": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/assessment" } }
+  },
+  "$defs": {
+    "technologies": {
+      "description": "Exact canonical technology values to release; no implicit approval of the entire array.",
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "$ref": "project.schema.json#/$defs/meaningfulString" }
+    },
+    "relatedProjects": {
+      "description": "Exact canonical related IDs to disclose as associations, not repository/deployment link permissions.",
+      "$ref": "career.schema.json#/$defs/relatedProjects"
+    },
+    "experience": {
+      "type": "object", "required": ["id", "fields"], "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "career.schema.json#/$defs/id" },
+        "fields": {
+          "type": "array", "uniqueItems": true,
+          "items": { "enum": ["company", "role", "start", "end", "country", "description.en", "description.id"] }
+        },
+        "technologies": { "$ref": "#/$defs/technologies" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    },
+    "work": {
+      "type": "object", "required": ["employerId", "id", "fields"], "additionalProperties": false,
+      "properties": {
+        "employerId": { "$ref": "career.schema.json#/$defs/id" },
+        "id": { "$ref": "career.schema.json#/$defs/localId" },
+        "fields": {
+          "type": "array", "uniqueItems": true,
+          "items": { "enum": ["title", "start", "end", "description.en", "description.id"] }
+        },
+        "technologies": { "$ref": "#/$defs/technologies" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    },
+    "freelance": {
+      "type": "object", "required": ["id", "fields"], "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "career.schema.json#/$defs/id" },
+        "fields": {
+          "type": "array", "uniqueItems": true,
+          "items": { "enum": ["title", "role", "client", "engagement", "country", "start", "end", "description.en", "description.id"] }
+        },
+        "technologies": { "$ref": "#/$defs/technologies" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    },
+    "component": {
+      "type": "object", "required": ["engagementId", "id", "fields"], "additionalProperties": false,
+      "properties": {
+        "engagementId": { "$ref": "career.schema.json#/$defs/id" },
+        "id": { "$ref": "career.schema.json#/$defs/localId" },
+        "fields": {
+          "type": "array", "uniqueItems": true,
+          "items": { "enum": ["title", "description.en", "description.id"] }
+        },
+        "technologies": { "$ref": "#/$defs/technologies" }
+      }
+    },
+    "assessment": {
+      "type": "object", "required": ["id", "fields"], "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "career.schema.json#/$defs/id" },
+        "fields": {
+          "type": "array", "uniqueItems": true,
+          "items": { "enum": ["title", "company", "year", "description.en", "description.id", "repository"] }
+        },
+        "technologies": { "$ref": "#/$defs/technologies" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    }
+  }
+}
