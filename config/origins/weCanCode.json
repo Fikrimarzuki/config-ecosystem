@@ -1,0 +1,21 @@
+{
+  "id": "weCanCode",
+  "title": "We Can Code",
+  "year": 2019,
+  "order": 60,
+  "listing": "public",
+  "description": {
+    "en": "A multi-page coding-course website concept with lessons, a playground and a quiz, built using HTML and CSS."
+  },
+  "technologies": [
+    "HTML",
+    "CSS",
+    "Font Awesome"
+  ],
+  "repositories": [
+    {
+      "name": "Fikrimarzuki.github.io",
+      "role": "Website"
+    }
+  ]
+}

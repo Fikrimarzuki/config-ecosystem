@@ -1,0 +1,42 @@
+{
+  "id": "tokenLoyaltyPlatform",
+  "title": "Token Loyalty Platform",
+  "role": "Software Engineer",
+  "country": "MY",
+  "start": "2022-10",
+  "end": "2024-12",
+  "listing": "public",
+  "order": 30,
+  "description": {
+    "en": "Led frontend development for a token loyalty platform, including a landing page, client PWA, and admin dashboard with QR token collection, redemption and reward management."
+  },
+  "technologies": [
+    "Next.js",
+    "Nuxt.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Pinia",
+    "PWA"
+  ],
+  "components": [
+    {
+      "id": "landing-page",
+      "title": "Landing Page"
+    },
+    {
+      "id": "client-pwa",
+      "title": "Client PWA",
+      "description": {
+        "en": "Progressive web application supporting token collection and redemption."
+      }
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Admin Dashboard",
+      "description": {
+        "en": "Dashboard supporting token and reward management."
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "pixelHouse1Kanban",
+  "title": "Algorithms and Kanban Board",
+  "company": "Pixel House Studio",
+  "year": 2020,
+  "listing": "public",
+  "description": {
+    "en": "JavaScript algorithm exercises covering palindromes, random arrays and sorting, alongside a Vue kanban board using Vuex state management."
+  },
+  "technologies": [
+    "Vue.js",
+    "Vuex",
+    "Buefy",
+    "JavaScript"
+  ],
+  "repository": "test-pixel-house",
+  "repositoryVisibility": "public"
+}

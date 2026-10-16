@@ -1,0 +1,29 @@
+{
+  "id": "fullStackKanban",
+  "title": "Full-Stack Kanban",
+  "year": 2020,
+  "order": 40,
+  "listing": "public",
+  "description": {
+    "en": "A full-stack Kanban board with a REST API and Vue client, supporting categories, tasks, Google Sign-In and per-user authorization."
+  },
+  "technologies": [
+    "Node.js",
+    "Express.js",
+    "Sequelize",
+    "PostgreSQL",
+    "JWT",
+    "Vue.js",
+    "Google Sign-In"
+  ],
+  "repositories": [
+    {
+      "name": "kanban",
+      "role": "Server"
+    },
+    {
+      "name": "kanban-porto",
+      "role": "Client"
+    }
+  ]
+}

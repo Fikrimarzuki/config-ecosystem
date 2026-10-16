@@ -1,0 +1,18 @@
+{
+  "id": "pixelHouse2DataTable",
+  "title": "Data Table Manager",
+  "company": "Pixel House Studio",
+  "year": 2020,
+  "listing": "public",
+  "description": {
+    "en": "A Vue and Quasar data table with search, filtering, single and bulk update and delete, and Jest unit tests."
+  },
+  "technologies": [
+    "Vue.js",
+    "Vuex",
+    "Quasar",
+    "Jest"
+  ],
+  "repository": "test-pixel-house-2",
+  "repositoryVisibility": "public"
+}

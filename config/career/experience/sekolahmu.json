@@ -1,0 +1,39 @@
+{
+  "id": "sekolahmu",
+  "company": "Sekolah.mu",
+  "role": "Backend Software Engineer",
+  "start": "2022-01",
+  "end": "2022-10",
+  "country": "ID",
+  "listing": "public",
+  "description": {
+    "en": "Developed payment microservices integrating Midtrans and Xendit with Go and Redis, migrated legacy Python services to Go, and built backend services for course management, cart, email and vouchers."
+  },
+  "technologies": [
+    "Go",
+    "Python",
+    "Redis",
+    "MySQL",
+    "Elasticsearch"
+  ],
+  "work": [
+    {
+      "id": "payment-services",
+      "title": "Payment Service",
+      "description": {
+        "en": "Developed payment services integrating Midtrans and Xendit payment gateways."
+      },
+      "technologies": [
+        "Go",
+        "Redis"
+      ]
+    },
+    {
+      "id": "product-and-supporting-services",
+      "title": "Product & Supporting Services",
+      "description": {
+        "en": "Developed product-related backend services and supporting functionality, including email and other services."
+      }
+    }
+  ]
+}

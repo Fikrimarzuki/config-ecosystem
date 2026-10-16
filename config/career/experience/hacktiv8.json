@@ -1,0 +1,43 @@
+{
+  "id": "hacktiv8",
+  "company": "Hacktiv8",
+  "role": "Full Stack JavaScript Instructor",
+  "start": "2022-10",
+  "end": "2023-09",
+  "country": "ID",
+  "listing": "public",
+  "description": {
+    "en": "Taught JavaScript, HTML/CSS, Express.js and PostgreSQL to full-stack bootcamp students, and built an internal grading system and GitHub Classroom automation scripts."
+  },
+  "technologies": [
+    "Node.js",
+    "Express.js",
+    "Sequelize",
+    "PostgreSQL",
+    "Bash",
+    "GitHub CLI"
+  ],
+  "work": [
+    {
+      "id": "grading-system",
+      "title": "Grading System",
+      "description": {
+        "en": "Developed an internal system to support student assignment grading and assessment."
+      }
+    },
+    {
+      "id": "github-classroom-automation",
+      "title": "GitHub Classroom Automation",
+      "description": {
+        "en": "Developed scripts to automate cloning, archiving and testing student repositories."
+      },
+      "technologies": [
+        "Bash",
+        "GitHub CLI"
+      ],
+      "relatedProjects": [
+        "multiRepoClone"
+      ]
+    }
+  ]
+}

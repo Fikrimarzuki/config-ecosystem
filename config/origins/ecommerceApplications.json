@@ -1,0 +1,37 @@
+{
+  "id": "ecommerceApplications",
+  "title": "E-commerce Applications",
+  "year": 2020,
+  "order": 30,
+  "listing": "public",
+  "description": {
+    "en": "A three-part e-commerce application with a tested REST API, an admin dashboard for managing products, categories and users, and a customer storefront with cart and checkout functionality."
+  },
+  "technologies": [
+    "Node.js",
+    "Express.js",
+    "Sequelize",
+    "PostgreSQL",
+    "JWT",
+    "Jest",
+    "Supertest",
+    "Vue.js",
+    "Vuex",
+    "Vue Router",
+    "Vuetify"
+  ],
+  "repositories": [
+    {
+      "name": "ecommerce-server",
+      "role": "Server"
+    },
+    {
+      "name": "ecommerce-admin",
+      "role": "Admin"
+    },
+    {
+      "name": "ecommerce-customer",
+      "role": "Customer"
+    }
+  ]
+}

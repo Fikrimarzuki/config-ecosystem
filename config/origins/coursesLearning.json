@@ -1,0 +1,19 @@
+{
+  "id": "coursesLearning",
+  "title": "Courses & Learning",
+  "year": 2020,
+  "order": 10,
+  "listing": "public",
+  "description": {
+    "en": "Continued learning through Python, React, Laravel, React Native and Kotlin, including coursework, coding exercises, quizzes and final projects."
+  },
+  "technologies": [
+    "Python",
+    "JavaScript",
+    "React",
+    "React Native",
+    "PHP",
+    "Laravel",
+    "Kotlin"
+  ]
+}

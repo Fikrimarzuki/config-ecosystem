@@ -1,0 +1,22 @@
+{
+  "id": "automotiveInventorySystem",
+  "title": "Automotive Spare Parts Inventory Management System",
+  "role": "Full Stack Developer",
+  "country": "ID",
+  "start": "2024-04",
+  "end": "2024-06",
+  "listing": "public",
+  "order": 40,
+  "description": {
+    "en": "Designed and developed an inventory management CMS for an automotive spare parts retailer, including REST APIs and frontend modules for products, inventory, locations and orders."
+  },
+  "technologies": [
+    "React.js",
+    "Tailwind CSS",
+    "Zustand",
+    "Node.js",
+    "Express.js",
+    "Sequelize",
+    "MySQL"
+  ]
+}

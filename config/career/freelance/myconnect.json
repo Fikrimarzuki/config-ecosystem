@@ -1,0 +1,22 @@
+{
+  "id": "myconnect",
+  "title": "MyConnect.ai",
+  "role": "Senior Frontend Engineer",
+  "country": "US",
+  "start": "2026-02",
+  "end": "2026-06",
+  "listing": "public",
+  "order": 10,
+  "description": {
+    "en": "Developed and enhanced production features for a Next.js and TypeScript web application, including bug fixes, performance improvements, refactoring, and monitoring with Sentry and Matomo."
+  },
+  "technologies": [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "TanStack Query",
+    "Sentry",
+    "Matomo",
+    "GitHub Actions"
+  ]
+}

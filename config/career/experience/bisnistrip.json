@@ -1,0 +1,66 @@
+{
+  "id": "bisnistrip",
+  "company": "BisnisTrip",
+  "role": "Software Engineer",
+  "start": "2024-04",
+  "end": "2025-12",
+  "country": "ID",
+  "listing": "public",
+  "description": {
+    "en": "Developed and maintained enterprise web platforms for membership, apartment, travel, hotel and document management, including business workflows, ERDs, REST APIs and Nginx deployments."
+  },
+  "technologies": [
+    "Nuxt.js",
+    "Tailwind CSS",
+    "TypeScript",
+    ".NET",
+    "SQL Server",
+    "Firebase",
+    "Nginx",
+    "GitLab CI/CD"
+  ],
+  "work": [
+    {
+      "id": "membership-platform",
+      "title": "Membership Platform",
+      "description": {
+        "en": "Developed and maintained a membership management web application."
+      }
+    },
+    {
+      "id": "apartment-platform",
+      "title": "Apartment Platform",
+      "description": {
+        "en": "Developed and maintained an apartment management web application."
+      }
+    },
+    {
+      "id": "hotel-platform",
+      "title": "Hotel Platform",
+      "description": {
+        "en": "Developed and maintained a hotel-related web application."
+      }
+    },
+    {
+      "id": "residential-platform",
+      "title": "Residential Platform",
+      "description": {
+        "en": "Developed and maintained a residential management web application."
+      }
+    },
+    {
+      "id": "travel-platform",
+      "title": "Travel Platform",
+      "description": {
+        "en": "Developed and maintained a travel-related web application."
+      }
+    },
+    {
+      "id": "digital-document-management",
+      "title": "Digital Document Management",
+      "description": {
+        "en": "Developed and maintained a digital document management web application."
+      }
+    }
+  ]
+}

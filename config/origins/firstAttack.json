@@ -1,0 +1,21 @@
+{
+  "id": "firstAttack",
+  "title": "First Attack!",
+  "year": 2019,
+  "order": 50,
+  "listing": "public",
+  "description": {
+    "en": "Attack Wars is a turn-based browser battle game built with JavaScript, featuring a story intro, hero naming, difficulty levels, critical attacks, spells and replay."
+  },
+  "technologies": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "repositories": [
+    {
+      "name": "javascript-Game",
+      "role": "Game"
+    }
+  ]
+}

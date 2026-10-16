@@ -1,0 +1,22 @@
+{
+  "id": "realtimeSlideshow",
+  "title": "Real-Time Slideshow",
+  "year": 2020,
+  "order": 20,
+  "listing": "public",
+  "description": {
+    "en": "A Vue carousel synchronized across viewers in real time using Socket.io to broadcast slide changes."
+  },
+  "technologies": [
+    "Vue.js",
+    "BootstrapVue",
+    "Socket.io",
+    "Node.js"
+  ],
+  "repositories": [
+    {
+      "name": "realtime-slideshow",
+      "role": "Application"
+    }
+  ]
+}
