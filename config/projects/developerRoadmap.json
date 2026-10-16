@@ -1,0 +1,12 @@
+{
+  "id": "developerRoadmap",
+  "name": "Developer Roadmap",
+  "status": "paused",
+  "listing": "public",
+  "destination": "learning",
+  "repository": "developer-roadmap",
+  "repositoryVisibility": "public",
+  "description": {
+    "en": "A collection of developer learning resources and roadmap content: language notes, practice projects, and role-based and skill-based learning paths."
+  }
+}

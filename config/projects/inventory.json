@@ -1,0 +1,18 @@
+{
+  "id": "inventory",
+  "name": "Inventory",
+  "status": "paused",
+  "listing": "public",
+  "destination": "products",
+  "repository": "app-inventory",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "inventory",
+      "subdomain": "inventory"
+    }
+  },
+  "description": {
+    "en": "A demo inventory management application that uses mock data."
+  }
+}

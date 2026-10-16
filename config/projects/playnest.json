@@ -1,0 +1,20 @@
+{
+  "id": "playnest",
+  "name": "Playnest",
+  "status": "active",
+  "listing": "public",
+  "destination": "games",
+  "repository": "web-playnest",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "playnest",
+      "subdomain": "playnest"
+    }
+  },
+  "description": {
+    "en": "A colourful collection of mini-games and interactive learning activities for children, featuring puzzles, challenges, and family-friendly multiplayer games."
+  },
+  "technologies": ["Vite", "Vanilla JavaScript", "PWA"],
+  "tags": ["games", "kids", "learning", "multiplayer"]
+}

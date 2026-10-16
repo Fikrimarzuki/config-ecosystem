@@ -1,0 +1,28 @@
+{
+  "id": "playdeck",
+  "name": "Playdeck",
+  "status": "active",
+  "listing": "public",
+  "destination": "platforms",
+  "repository": "app-playdeck",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "playdeck",
+      "subdomain": "playdeck"
+    }
+  },
+  "description": {
+    "en": "Turn presentations into playable worlds."
+  },
+  "technologies": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Phaser"
+  ],
+  "tags": [
+    "presentation",
+    "game"
+  ]
+}

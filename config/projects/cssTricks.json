@@ -1,0 +1,15 @@
+{
+  "id": "cssTricks",
+  "name": "CSS Tricks",
+  "status": "paused",
+  "listing": "public",
+  "destination": "labs",
+  "repository": "lab-css-tricks",
+  "repositoryVisibility": "public",
+  "deployments": {
+    "main": {
+      "name": "css-tricks",
+      "url": "https://fikrimarzuki.github.io/lab-css-tricks/"
+    }
+  }
+}

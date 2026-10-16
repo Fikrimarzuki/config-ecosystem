@@ -1,0 +1,9 @@
+{
+  "id": "scriptoria",
+  "name": "Scriptoria",
+  "status": "paused",
+  "listing": "public",
+  "destination": "games",
+  "repository": "game-scriptoria",
+  "repositoryVisibility": "private"
+}

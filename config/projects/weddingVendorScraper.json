@@ -1,0 +1,13 @@
+{
+  "id": "weddingVendorScraper",
+  "name": "Wedding Vendor Scraper",
+  "status": "completed",
+  "listing": "hidden",
+  "destination": "labs",
+  "repository": "lab-wedding-vendor-scraper",
+  "repositoryVisibility": "private",
+  "description": {
+    "en": "A tool built for Nikah Yuk that collects and structures wedding vendor information from online wedding directories."
+  },
+  "related": ["nikahyuk"]
+}

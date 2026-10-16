@@ -1,0 +1,18 @@
+{
+  "id": "gateway",
+  "name": "Developer Ecosystem",
+  "status": "active",
+  "listing": "public",
+  "destination": "central-station",
+  "repository": "web-gateway",
+  "repositoryVisibility": "private",
+  "deployments": {
+    "main": {
+      "name": "gateway",
+      "subdomain": null,
+      "aliases": [
+        "www"
+      ]
+    }
+  }
+}
