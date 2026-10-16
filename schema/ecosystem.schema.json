@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://config-ecosystem.invalid/schema/ecosystem.schema.json",
+  "title": "Ecosystem Config",
+  "description": "Structural contract for the ecosystem project and deployment registry. Cross-record rules (unique hostnames, unique deployment names, meaningful strings, career ids, dates and ordering) are enforced by scripts/validate.mjs.",
+  "type": "object",
+  "required": ["version", "username", "domains", "projects", "career", "origins", "concepts"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "description": "Config contract version.",
+      "const": 1
+    },
+    "username": {
+      "description": "must be a GitHub username (letters, digits and '-')",
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9-]+$"
+    },
+    "domains": {
+      "type": "object",
+      "required": ["primary"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": { "$ref": "#/$defs/domain" }
+      }
+    },
+    "profile": {
+      "description": "Personal profile of the owner. Optional; additive to the top-level fields.",
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Display name of the owner.",
+          "$ref": "project.schema.json#/$defs/trimmedString"
+        },
+        "title": {
+          "description": "Professional title, e.g. a job role. Optional.",
+          "$ref": "project.schema.json#/$defs/trimmedString"
+        },
+        "email": {
+          "description": "Public contact email address. Optional.",
+          "$ref": "#/$defs/email"
+        },
+        "links": {
+          "description": "Canonical social links keyed by platform (e.g. github, linkedin, website). Any key is allowed; values must be absolute HTTPS URLs.",
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": { "$ref": "project.schema.json#/$defs/key" },
+          "additionalProperties": { "$ref": "project.schema.json#/$defs/httpsUrl" }
+        },
+        "assets": {
+          "description": "Local profile assets under assets/profile/ (checked by scripts/validate.mjs).",
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "resume": { "$ref": "project.schema.json#/$defs/pdfPath" },
+            "logo": { "$ref": "project.schema.json#/$defs/imagePath" },
+            "avatar": { "$ref": "project.schema.json#/$defs/imagePath" }
+          }
+        }
+      }
+    },
+    "ecosystem": {
+      "description": "Shared ecosystem brand identity, separate from the personal profile. Optional.",
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Ecosystem brand name.",
+          "$ref": "project.schema.json#/$defs/nonEmptyString"
+        },
+        "assets": {
+          "description": "Local ecosystem brand assets under assets/ecosystem/ (checked by scripts/validate.mjs).",
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "logo": { "$ref": "project.schema.json#/$defs/imagePath" },
+            "icon": { "$ref": "project.schema.json#/$defs/imagePath" },
+            "banner": { "$ref": "project.schema.json#/$defs/imagePath" }
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "object",
+      "propertyNames": { "$ref": "project.schema.json#/$defs/projectId" },
+      "additionalProperties": {
+        "type": "object",
+        "$ref": "project.schema.json#/$defs/project",
+        "unevaluatedProperties": false
+      }
+    },
+    "career": {
+      "description": "Career collections (experience, freelance, assessments). Always present; each collection may be empty.",
+      "$ref": "career.schema.json"
+    },
+    "origins": {
+      "description": "Origins archive: curated early-development entries. Always present; may be empty.",
+      "$ref": "origins.schema.json"
+    },
+    "concepts": {
+      "description": "Concepts: future project ideas (titles only). Always present; may be empty.",
+      "$ref": "concepts.schema.json"
+    }
+  },
+  "$defs": {
+    "email": {
+      "description": "must be a valid email address (local@domain.tld, no spaces, no leading, trailing or repeated dots in the local part)",
+      "type": "string",
+      "maxLength": 254,
+      "pattern": "^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$"
+    },
+    "domain": {
+      "description": "must be a lowercase domain with at least two DNS labels, e.g. example.com",
+      "type": "string",
+      "maxLength": 253,
+      "pattern": "^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$"
+    }
+  }
+}

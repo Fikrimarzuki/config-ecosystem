@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://config-ecosystem.invalid/schema/project.schema.json",
+  "title": "Project",
+  "description": "Source file for one project (config/projects/<id>.json): the shared project definition plus a required id that must match the filename. The assembled ecosystem schema references #/$defs/project directly, so the id is not part of generated output.",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": {
+      "description": "Canonical project identifier. Must match the filename (without .json) and the key in the assembled ecosystem config.",
+      "$ref": "#/$defs/projectId"
+    }
+  },
+  "allOf": [
+    { "$ref": "#/$defs/project" }
+  ],
+  "unevaluatedProperties": false,
+  "$defs": {
+    "project": {
+      "description": "A project as it appears in the assembled config (no id). Unknown properties are rejected where this is referenced, via unevaluatedProperties.",
+      "type": "object",
+      "required": ["name", "status", "listing", "destination"],
+      "dependentRequired": {
+        "repository": ["repositoryVisibility"],
+        "repositoryVisibility": ["repository"],
+        "path": ["repository"]
+      },
+      "properties": {
+        "name": {
+          "description": "Human-readable project name.",
+          "$ref": "#/$defs/trimmedString"
+        },
+        "status": {
+          "enum": ["active", "paused", "completed", "archived"]
+        },
+        "listing": { "$ref": "#/$defs/listing" },
+        "destination": {
+          "description": "The project's one primary Gateway destination.",
+          "$ref": "#/$defs/destination"
+        },
+        "repository": {
+          "description": "GitHub repository name under the configured username. Omit when the project has no repository.",
+          "$ref": "#/$defs/repositoryName"
+        },
+        "repositoryVisibility": {
+          "description": "Whether the repository can be publicly accessed. Required with, and only allowed with, repository. Independent of listing, status and deployments.",
+          "enum": ["public", "private"]
+        },
+        "path": {
+          "description": "Path of the project inside a shared repository. Requires repository.",
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "related": {
+          "description": "Canonical IDs of related projects. A relationship is undirected and declared once, on one of the two projects (checked by scripts/validate.mjs).",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/projectId" }
+        },
+        "deployments": {
+          "description": "Public deployments. Omit when the project is not deployed.",
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": { "$ref": "#/$defs/trimmedString" },
+          "additionalProperties": { "$ref": "#/$defs/deployment" }
+        },
+        "tagline": {
+          "description": "Short localized tagline.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "description": {
+          "description": "Localized project description.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "technologies": { "$ref": "#/$defs/technologies" },
+        "tags": { "$ref": "#/$defs/tags" },
+        "links": { "$ref": "#/$defs/projectLinks" },
+        "assets": { "$ref": "#/$defs/projectAssets" }
+      }
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "key": {
+      "description": "must not be empty or whitespace-only",
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "trimmedString": {
+      "description": "must be a non-empty string without leading or trailing whitespace",
+      "type": "string",
+      "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+    },
+    "projectId": {
+      "description": "must be a camelCase identifier (a lowercase letter, then letters and digits)",
+      "type": "string",
+      "pattern": "^[a-z][a-zA-Z0-9]*$"
+    },
+    "repositoryName": {
+      "description": "must be a GitHub repository name (letters, digits, '.', '_' and '-'), not a URL",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "deploymentName": {
+      "description": "must be a lowercase slug (a-z, 0-9, single '-' between parts)",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "listing": {
+      "description": "Portfolio visibility only. Hidden records are still published in the generated JSON.",
+      "enum": ["public", "hidden"]
+    },
+    "destination": {
+      "description": "Primary Gateway destination: a main destination (games, learning, tools, products, platforms, career, labs) or a special one (central-station, sun, moon).",
+      "enum": ["games", "learning", "tools", "products", "platforms", "career", "labs", "central-station", "sun", "moon"]
+    },
+    "repositoryPath": {
+      "description": "must be a relative path inside the repository: '/'-separated, non-empty segments, no leading '/', drive letter, backslashes, '.' / '..' segments, or leading/trailing whitespace",
+      "type": "string",
+      "pattern": "^(?!\\s)(?![A-Za-z]:)(?!(?:.*/)?\\.\\.?(?:/|$))[^/\\\\]+(?:/[^/\\\\]+)*(?<!\\s)$"
+    },
+    "subdomain": {
+      "description": "must be one or more lowercase DNS labels separated by '.' (a-z, 0-9, '-', not starting or ending with '-')",
+      "type": "string",
+      "maxLength": 253,
+      "pattern": "^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$"
+    },
+    "deployment": {
+      "type": "object",
+      "description": "A deployment is either hosted under the primary domain (subdomain) or hosted elsewhere (url). Exactly one of the two is required.",
+      "required": ["name"],
+      "oneOf": [
+        { "required": ["subdomain"], "properties": { "subdomain": true } },
+        { "required": ["url"], "properties": { "url": true } }
+      ],
+      "dependentRequired": { "aliases": ["subdomain"] },
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Deployment identity, unique across the ecosystem. Consumers use it as a public slug (Support's ?project=).",
+          "$ref": "#/$defs/deploymentName"
+        },
+        "url": {
+          "description": "Explicit external deployment URL (e.g. GitHub Pages), used as-is including any path and trailing slash. Must be an absolute https:// URL. Not allowed together with subdomain or aliases.",
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "subdomain": {
+          "description": "must be null (apex/root domain) or one or more lowercase DNS labels separated by '.' (a-z, 0-9, '-', not starting or ending with '-')",
+          "type": ["string", "null"],
+          "maxLength": 253,
+          "pattern": "^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$"
+        },
+        "aliases": {
+          "description": "Additional subdomains that resolve to this deployment.",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/subdomain" }
+        }
+      }
+    },
+    "localizedText": {
+      "description": "Localized text. English is required; Indonesian is optional. Consumers fall back to English when a locale is missing.",
+      "type": "object",
+      "required": ["en"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "$ref": "#/$defs/meaningfulString" },
+        "id": { "$ref": "#/$defs/meaningfulString" }
+      }
+    },
+    "meaningfulString": {
+      "description": "must not be empty or whitespace-only",
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "httpsUrl": {
+      "description": "must be an absolute https:// URL with a host and no whitespace",
+      "type": "string",
+      "pattern": "^https://[^\\s/?#]+(?:[/?#]\\S*)?$"
+    },
+    "technologies": {
+      "description": "Technologies used, in display order. Free-form names; duplicates are rejected case-insensitively.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/meaningfulString" }
+    },
+    "tags": {
+      "description": "Lowercase kebab-case identifiers, in display order.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "description": "must be a lowercase kebab-case identifier (a-z, 0-9, single '-' between parts)",
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      }
+    },
+    "projectLinks": {
+      "description": "Extra project links keyed by lowercase name (e.g. documentation, figma). Do not repeat repository or deployment URLs; those are derived from existing fields.",
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "description": "must be a lowercase link name (a-z, 0-9, '-', starting with a letter)",
+        "pattern": "^[a-z][a-z0-9-]*$"
+      },
+      "additionalProperties": { "$ref": "#/$defs/httpsUrl" }
+    },
+    "imagePath": {
+      "description": "must be a repository-relative path starting with assets/ (no URLs, backslashes, '..' or leading dots; characters A-Z a-z 0-9 . _ - only) ending in .png, .jpg, .jpeg, .webp, .svg, .avif or .gif",
+      "type": "string",
+      "pattern": "^assets/(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\\.(?:png|jpe?g|webp|svg|avif|gif)$"
+    },
+    "pdfPath": {
+      "description": "must be a repository-relative path starting with assets/ (no URLs, backslashes, '..' or leading dots; characters A-Z a-z 0-9 . _ - only) ending in .pdf",
+      "type": "string",
+      "pattern": "^assets/(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\\.pdf$"
+    },
+    "mediaImage": {
+      "description": "An image in a project's media gallery.",
+      "type": "object",
+      "required": ["type", "src", "alt"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "image"
+        },
+        "src": { "$ref": "#/$defs/imagePath" },
+        "alt": {
+          "description": "Localized alternative text.",
+          "$ref": "#/$defs/localizedText"
+        }
+      }
+    },
+    "projectAssets": {
+      "description": "Local asset references for a project. All optional; paths live under assets/projects/<projectId>/ (checked by scripts/validate.mjs).",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "icon": { "$ref": "#/$defs/imagePath" },
+        "logo": { "$ref": "#/$defs/imagePath" },
+        "thumbnail": { "$ref": "#/$defs/imagePath" },
+        "cover": { "$ref": "#/$defs/imagePath" },
+        "media": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/mediaImage" }
+        }
+      }
+    }
+  }
+}

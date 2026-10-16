@@ -1,0 +1,1229 @@
+{
+  "version": 1,
+  "username": "Fikrimarzuki",
+  "domains": {
+    "primary": "fikrimarzuki.work"
+  },
+  "profile": {
+    "name": "M Fikri Marzuki",
+    "title": "Full-Stack Software Engineer",
+    "email": "marzuki.fikri@gmail.com",
+    "links": {
+      "github": "https://github.com/Fikrimarzuki",
+      "linkedin": "https://www.linkedin.com/in/fikri-marzuki/",
+      "gitlab": "https://gitlab.com/fikrimarzuki"
+    },
+    "assets": {
+      "resume": "assets/profile/cv.pdf",
+      "logo": "assets/profile/logo.png",
+      "avatar": "assets/profile/avatar.jpg"
+    }
+  },
+  "ecosystem": {
+    "name": "FM Work"
+  },
+  "projects": {
+    "careerLens": {
+      "name": "CareerLens",
+      "status": "completed",
+      "listing": "public",
+      "destination": "tools",
+      "repository": "app-career-lens",
+      "repositoryVisibility": "private"
+    },
+    "configEcosystem": {
+      "name": "Config Ecosystem",
+      "status": "active",
+      "listing": "public",
+      "destination": "central-station",
+      "repository": "config-ecosystem",
+      "repositoryVisibility": "public",
+      "description": {
+        "en": "Centralized project metadata, schemas, validation, and generated configuration for my developer ecosystem."
+      }
+    },
+    "cssTricks": {
+      "name": "CSS Tricks",
+      "status": "paused",
+      "listing": "public",
+      "destination": "labs",
+      "repository": "lab-css-tricks",
+      "repositoryVisibility": "public",
+      "deployments": {
+        "main": {
+          "name": "css-tricks",
+          "url": "https://fikrimarzuki.github.io/lab-css-tricks/"
+        }
+      }
+    },
+    "cv": {
+      "name": "CV",
+      "status": "active",
+      "listing": "public",
+      "destination": "sun",
+      "repository": "web-cv",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "cv",
+          "subdomain": "cv"
+        }
+      }
+    },
+    "developerRoadmap": {
+      "name": "Developer Roadmap",
+      "status": "paused",
+      "listing": "public",
+      "destination": "learning",
+      "repository": "developer-roadmap",
+      "repositoryVisibility": "public",
+      "description": {
+        "en": "A collection of developer learning resources and roadmap content: language notes, practice projects, and role-based and skill-based learning paths."
+      }
+    },
+    "devtools": {
+      "name": "DevTools",
+      "status": "active",
+      "listing": "public",
+      "destination": "tools",
+      "repository": "web-devtools",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "devtools",
+          "subdomain": "devtools"
+        }
+      }
+    },
+    "foodieMap": {
+      "name": "Foodie Map",
+      "status": "paused",
+      "listing": "public",
+      "destination": "products",
+      "repository": "lab-projects",
+      "repositoryVisibility": "private",
+      "path": "foodie-map",
+      "deployments": {
+        "main": {
+          "name": "foodie-map",
+          "subdomain": "foodie-map"
+        }
+      }
+    },
+    "frontendMonorepo": {
+      "name": "Frontend Monorepo",
+      "status": "paused",
+      "listing": "public",
+      "destination": "platforms",
+      "repository": "lab-fm-monorepo",
+      "repositoryVisibility": "private"
+    },
+    "games": {
+      "name": "Games",
+      "status": "active",
+      "listing": "public",
+      "destination": "games",
+      "repository": "web-games",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "games",
+          "subdomain": "games"
+        }
+      }
+    },
+    "gateway": {
+      "name": "Developer Ecosystem",
+      "status": "active",
+      "listing": "public",
+      "destination": "central-station",
+      "repository": "web-gateway",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "gateway",
+          "subdomain": null,
+          "aliases": [
+            "www"
+          ]
+        }
+      }
+    },
+    "inventory": {
+      "name": "Inventory",
+      "status": "paused",
+      "listing": "public",
+      "destination": "products",
+      "repository": "app-inventory",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "inventory",
+          "subdomain": "inventory"
+        }
+      },
+      "description": {
+        "en": "A demo inventory management application that uses mock data."
+      }
+    },
+    "javascriptia": {
+      "name": "JavaScriptia",
+      "status": "active",
+      "listing": "public",
+      "destination": "learning",
+      "repository": "game-javascriptia",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "javascriptia",
+          "subdomain": "javascriptia"
+        }
+      }
+    },
+    "kodeStep": {
+      "name": "KodeStep",
+      "status": "completed",
+      "listing": "public",
+      "destination": "learning",
+      "repository": "learn-kodestep",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "kodestep",
+          "subdomain": "kodestep"
+        }
+      }
+    },
+    "learning": {
+      "name": "Learning",
+      "status": "active",
+      "listing": "public",
+      "destination": "learning",
+      "repository": "web-learning",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "learning",
+          "subdomain": "learn"
+        }
+      }
+    },
+    "multiRepoClone": {
+      "name": "Multiple Git Clone",
+      "status": "completed",
+      "listing": "public",
+      "destination": "tools",
+      "repository": "tool-multiple-git-clone",
+      "repositoryVisibility": "public"
+    },
+    "neuran": {
+      "name": "Neuran",
+      "status": "paused",
+      "listing": "public",
+      "destination": "platforms",
+      "repository": "app-neuran",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "neuran",
+          "subdomain": "neuran"
+        },
+        "admin": {
+          "name": "neuran-admin",
+          "subdomain": "neuran-admin"
+        },
+        "lms": {
+          "name": "neuran-lms",
+          "subdomain": "neuran-lms"
+        },
+        "skill": {
+          "name": "neuran-skill",
+          "subdomain": "neuran-skill"
+        },
+        "social": {
+          "name": "neuran-social",
+          "subdomain": "neuran-social"
+        }
+      }
+    },
+    "nikahkuy": {
+      "name": "Nikah Kuy",
+      "status": "completed",
+      "listing": "public",
+      "destination": "products",
+      "repository": "lab-projects",
+      "repositoryVisibility": "private",
+      "path": "nikah-kuy",
+      "deployments": {
+        "main": {
+          "name": "nikahkuy",
+          "subdomain": "nikahkuy"
+        }
+      }
+    },
+    "nikahyuk": {
+      "name": "Nikah Yuk",
+      "status": "active",
+      "listing": "public",
+      "destination": "products",
+      "repository": "nikahyuk-app",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "nikahyuk",
+          "subdomain": "nikahyuk"
+        }
+      }
+    },
+    "nikahyukPrototype": {
+      "name": "Nikah Yuk Prototype",
+      "status": "completed",
+      "listing": "public",
+      "destination": "products",
+      "repository": "lab-projects",
+      "repositoryVisibility": "private",
+      "path": "nikah-yuk",
+      "deployments": {
+        "main": {
+          "name": "nikahyuk-prototype",
+          "subdomain": "nikahyuk-prototype"
+        }
+      }
+    },
+    "nodeApi": {
+      "name": "Node API",
+      "status": "paused",
+      "listing": "public",
+      "destination": "labs",
+      "repository": "lab-node-api",
+      "repositoryVisibility": "public"
+    },
+    "pageLayr": {
+      "name": "Page Layr",
+      "status": "active",
+      "listing": "public",
+      "destination": "platforms",
+      "repository": "app-pagelayr",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "page-layr",
+          "subdomain": "page-layr"
+        }
+      }
+    },
+    "playdeck": {
+      "name": "Playdeck",
+      "status": "active",
+      "listing": "public",
+      "destination": "platforms",
+      "repository": "app-playdeck",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "playdeck",
+          "subdomain": "playdeck"
+        }
+      },
+      "description": {
+        "en": "Turn presentations into playable worlds."
+      },
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Phaser"
+      ],
+      "tags": [
+        "presentation",
+        "game"
+      ]
+    },
+    "playground": {
+      "name": "Playground",
+      "status": "paused",
+      "listing": "public",
+      "destination": "platforms",
+      "repository": "web-playground",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "playground",
+          "subdomain": "play"
+        }
+      }
+    },
+    "playnest": {
+      "name": "Playnest",
+      "status": "active",
+      "listing": "public",
+      "destination": "games",
+      "repository": "web-playnest",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "playnest",
+          "subdomain": "playnest"
+        }
+      },
+      "description": {
+        "en": "A colourful collection of mini-games and interactive learning activities for children, featuring puzzles, challenges, and family-friendly multiplayer games."
+      },
+      "technologies": [
+        "Vite",
+        "Vanilla JavaScript",
+        "PWA"
+      ],
+      "tags": [
+        "games",
+        "kids",
+        "learning",
+        "multiplayer"
+      ]
+    },
+    "projects": {
+      "name": "Projects",
+      "status": "active",
+      "listing": "public",
+      "destination": "platforms",
+      "repository": "web-projects",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "projects",
+          "subdomain": "projects"
+        }
+      }
+    },
+    "roadmap": {
+      "name": "Learning Roadmap",
+      "status": "active",
+      "listing": "public",
+      "destination": "learning",
+      "repository": "web-roadmap",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "roadmap",
+          "subdomain": "roadmap"
+        }
+      }
+    },
+    "scriptoria": {
+      "name": "Scriptoria",
+      "status": "paused",
+      "listing": "public",
+      "destination": "games",
+      "repository": "game-scriptoria",
+      "repositoryVisibility": "private"
+    },
+    "support": {
+      "name": "Support",
+      "status": "active",
+      "listing": "public",
+      "destination": "moon",
+      "repository": "web-support",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "support",
+          "subdomain": "support"
+        }
+      }
+    },
+    "tcgHub": {
+      "name": "TCG Hub",
+      "status": "paused",
+      "listing": "public",
+      "destination": "products",
+      "repository": "lab-projects",
+      "repositoryVisibility": "private",
+      "path": "tcg-hub-starter",
+      "deployments": {
+        "main": {
+          "name": "tcg-hub",
+          "subdomain": "tcg-hub"
+        }
+      }
+    },
+    "tinyverse": {
+      "name": "Tinyverse",
+      "status": "active",
+      "listing": "public",
+      "destination": "games",
+      "repository": "game-tinyverse",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "tinyverse",
+          "subdomain": "tinyverse"
+        }
+      }
+    },
+    "tools": {
+      "name": "Tools",
+      "status": "active",
+      "listing": "public",
+      "destination": "tools",
+      "repository": "web-tools",
+      "repositoryVisibility": "private",
+      "deployments": {
+        "main": {
+          "name": "tools",
+          "subdomain": "tools"
+        }
+      }
+    },
+    "wedding": {
+      "name": "Wedding",
+      "status": "completed",
+      "listing": "hidden",
+      "destination": "platforms",
+      "repository": "wedding-invitation",
+      "repositoryVisibility": "private"
+    },
+    "weddingVendorScraper": {
+      "name": "Wedding Vendor Scraper",
+      "status": "completed",
+      "listing": "hidden",
+      "destination": "labs",
+      "repository": "lab-wedding-vendor-scraper",
+      "repositoryVisibility": "private",
+      "description": {
+        "en": "A tool built for Nikah Yuk that collects and structures wedding vendor information from online wedding directories."
+      },
+      "related": [
+        "nikahyuk"
+      ]
+    }
+  },
+  "career": {
+    "experience": [
+      {
+        "id": "pixelHouseStudio",
+        "company": "Pixel House Studio",
+        "role": "Software Engineer",
+        "start": "2020-06",
+        "end": "2021-12",
+        "country": "ID",
+        "listing": "public",
+        "description": {
+          "en": "Developed a page builder and rendering engine for drag-and-drop website creation, frontend applications with Vue.js and Nuxt.js, and Node.js migration scripts for legacy data."
+        },
+        "technologies": [
+          "Vue.js",
+          "Nuxt.js",
+          "Bootstrap",
+          "Sass",
+          "Node.js",
+          "PostgreSQL",
+          "CircleCI"
+        ],
+        "work": [
+          {
+            "id": "managix-page-builder",
+            "title": "Managix Page Builder",
+            "description": {
+              "en": "Developed a drag-and-drop website page builder and rendering engine, including live preview and publishing workflows."
+            },
+            "technologies": [
+              "Vue.js",
+              "Nuxt.js"
+            ]
+          },
+          {
+            "id": "nodejs-data-converter",
+            "title": "Node.js Data Converter",
+            "description": {
+              "en": "Developed Node.js scripts for converting and migrating legacy data."
+            },
+            "technologies": [
+              "Node.js"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sekolahmu",
+        "company": "Sekolah.mu",
+        "role": "Backend Software Engineer",
+        "start": "2022-01",
+        "end": "2022-10",
+        "country": "ID",
+        "listing": "public",
+        "description": {
+          "en": "Developed payment microservices integrating Midtrans and Xendit with Go and Redis, migrated legacy Python services to Go, and built backend services for course management, cart, email and vouchers."
+        },
+        "technologies": [
+          "Go",
+          "Python",
+          "Redis",
+          "MySQL",
+          "Elasticsearch"
+        ],
+        "work": [
+          {
+            "id": "payment-services",
+            "title": "Payment Service",
+            "description": {
+              "en": "Developed payment services integrating Midtrans and Xendit payment gateways."
+            },
+            "technologies": [
+              "Go",
+              "Redis"
+            ]
+          },
+          {
+            "id": "product-and-supporting-services",
+            "title": "Product & Supporting Services",
+            "description": {
+              "en": "Developed product-related backend services and supporting functionality, including email and other services."
+            }
+          }
+        ]
+      },
+      {
+        "id": "hacktiv8",
+        "company": "Hacktiv8",
+        "role": "Full Stack JavaScript Instructor",
+        "start": "2022-10",
+        "end": "2023-09",
+        "country": "ID",
+        "listing": "public",
+        "description": {
+          "en": "Taught JavaScript, HTML/CSS, Express.js and PostgreSQL to full-stack bootcamp students, and built an internal grading system and GitHub Classroom automation scripts."
+        },
+        "technologies": [
+          "Node.js",
+          "Express.js",
+          "Sequelize",
+          "PostgreSQL",
+          "Bash",
+          "GitHub CLI"
+        ],
+        "work": [
+          {
+            "id": "grading-system",
+            "title": "Grading System",
+            "description": {
+              "en": "Developed an internal system to support student assignment grading and assessment."
+            }
+          },
+          {
+            "id": "github-classroom-automation",
+            "title": "GitHub Classroom Automation",
+            "description": {
+              "en": "Developed scripts to automate cloning, archiving and testing student repositories."
+            },
+            "technologies": [
+              "Bash",
+              "GitHub CLI"
+            ],
+            "relatedProjects": [
+              "multiRepoClone"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bisnistrip",
+        "company": "BisnisTrip",
+        "role": "Software Engineer",
+        "start": "2024-04",
+        "end": "2025-12",
+        "country": "ID",
+        "listing": "public",
+        "description": {
+          "en": "Developed and maintained enterprise web platforms for membership, apartment, travel, hotel and document management, including business workflows, ERDs, REST APIs and Nginx deployments."
+        },
+        "technologies": [
+          "Nuxt.js",
+          "Tailwind CSS",
+          "TypeScript",
+          ".NET",
+          "SQL Server",
+          "Firebase",
+          "Nginx",
+          "GitLab CI/CD"
+        ],
+        "work": [
+          {
+            "id": "membership-platform",
+            "title": "Membership Platform",
+            "description": {
+              "en": "Developed and maintained a membership management web application."
+            }
+          },
+          {
+            "id": "apartment-platform",
+            "title": "Apartment Platform",
+            "description": {
+              "en": "Developed and maintained an apartment management web application."
+            }
+          },
+          {
+            "id": "hotel-platform",
+            "title": "Hotel Platform",
+            "description": {
+              "en": "Developed and maintained a hotel-related web application."
+            }
+          },
+          {
+            "id": "residential-platform",
+            "title": "Residential Platform",
+            "description": {
+              "en": "Developed and maintained a residential management web application."
+            }
+          },
+          {
+            "id": "travel-platform",
+            "title": "Travel Platform",
+            "description": {
+              "en": "Developed and maintained a travel-related web application."
+            }
+          },
+          {
+            "id": "digital-document-management",
+            "title": "Digital Document Management",
+            "description": {
+              "en": "Developed and maintained a digital document management web application."
+            }
+          }
+        ]
+      },
+      {
+        "id": "spacetoco",
+        "company": "SpacetoCo",
+        "role": "Full Stack Engineer",
+        "start": "2026-04",
+        "end": null,
+        "country": "AU",
+        "listing": "public",
+        "description": {
+          "en": "Build and maintain APIs, backend services and features across customer-facing and internal applications, and contribute to platform architecture, shared infrastructure, reliability, observability and testing."
+        },
+        "technologies": [
+          "Nuxt.js",
+          "FeathersJS",
+          "TypeScript",
+          "Tailwind CSS",
+          "MongoDB",
+          "Terraform",
+          "OpenTelemetry"
+        ]
+      }
+    ],
+    "freelance": [
+      {
+        "id": "myconnect",
+        "title": "MyConnect.ai",
+        "role": "Senior Frontend Engineer",
+        "country": "US",
+        "start": "2026-02",
+        "end": "2026-06",
+        "listing": "public",
+        "order": 10,
+        "description": {
+          "en": "Developed and enhanced production features for a Next.js and TypeScript web application, including bug fixes, performance improvements, refactoring, and monitoring with Sentry and Matomo."
+        },
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "TanStack Query",
+          "Sentry",
+          "Matomo",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "id": "miningOperationsPlatform",
+        "title": "Mining Operations Platform",
+        "role": "Frontend Developer",
+        "country": "AU",
+        "start": "2025-06",
+        "end": "2025-10",
+        "listing": "public",
+        "order": 20,
+        "description": {
+          "en": "Developed web and mobile applications for a mining operations platform, including a block builder for mining planning, live camera and video management, dashboards, and a React Native task management app."
+        },
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "React Native",
+          "TanStack Query",
+          "shadcn/ui"
+        ],
+        "components": [
+          {
+            "id": "operations-application",
+            "title": "Operations Application"
+          },
+          {
+            "id": "block-builder",
+            "title": "Block Builder",
+            "description": {
+              "en": "Block builder application for mining planning and operations."
+            }
+          },
+          {
+            "id": "live-camera-video",
+            "title": "Live Camera & Video Management",
+            "description": {
+              "en": "Camera management with live streaming and video management."
+            }
+          },
+          {
+            "id": "dashboards",
+            "title": "Dashboards",
+            "description": {
+              "en": "Administrative dashboard."
+            }
+          },
+          {
+            "id": "task-management-app",
+            "title": "Task Management App",
+            "description": {
+              "en": "React Native application for task management."
+            },
+            "technologies": [
+              "React Native"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tokenLoyaltyPlatform",
+        "title": "Token Loyalty Platform",
+        "role": "Software Engineer",
+        "country": "MY",
+        "start": "2022-10",
+        "end": "2024-12",
+        "listing": "public",
+        "order": 30,
+        "description": {
+          "en": "Led frontend development for a token loyalty platform, including a landing page, client PWA, and admin dashboard with QR token collection, redemption and reward management."
+        },
+        "technologies": [
+          "Next.js",
+          "Nuxt.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion",
+          "Pinia",
+          "PWA"
+        ],
+        "components": [
+          {
+            "id": "landing-page",
+            "title": "Landing Page"
+          },
+          {
+            "id": "client-pwa",
+            "title": "Client PWA",
+            "description": {
+              "en": "Progressive web application supporting token collection and redemption."
+            }
+          },
+          {
+            "id": "admin-dashboard",
+            "title": "Admin Dashboard",
+            "description": {
+              "en": "Dashboard supporting token and reward management."
+            }
+          }
+        ]
+      },
+      {
+        "id": "automotiveInventorySystem",
+        "title": "Automotive Spare Parts Inventory Management System",
+        "role": "Full Stack Developer",
+        "country": "ID",
+        "start": "2024-04",
+        "end": "2024-06",
+        "listing": "public",
+        "order": 40,
+        "description": {
+          "en": "Designed and developed an inventory management CMS for an automotive spare parts retailer, including REST APIs and frontend modules for products, inventory, locations and orders."
+        },
+        "technologies": [
+          "React.js",
+          "Tailwind CSS",
+          "Zustand",
+          "Node.js",
+          "Express.js",
+          "Sequelize",
+          "MySQL"
+        ]
+      },
+      {
+        "id": "shipMonitoringPlatform",
+        "title": "Ship Monitoring Platform",
+        "role": "Frontend Developer",
+        "country": "ID",
+        "start": "2024-01",
+        "end": "2024-03",
+        "listing": "public",
+        "order": 50,
+        "description": {
+          "en": "Developed real-time ship monitoring applications with interactive maps, playback, radar visualization, geofencing and CCTV management."
+        },
+        "technologies": [
+          "React.js",
+          "TypeScript",
+          "React Leaflet",
+          "Material UI",
+          "Tailwind CSS"
+        ]
+      },
+      {
+        "id": "tradingCommunityPlatform",
+        "title": "Trading Community Platform",
+        "role": "Technical Project Consultant",
+        "country": "ID",
+        "start": "2023-10",
+        "end": "2024-02",
+        "listing": "public",
+        "order": 60,
+        "description": {
+          "en": "Audited an existing web platform, identified feature gaps through technical and UI reviews, and planned development roadmaps and sprint backlogs."
+        },
+        "technologies": [
+          "Jira",
+          "Whimsical",
+          "Figma"
+        ]
+      },
+      {
+        "id": "rollingGlory",
+        "title": "Fintech CMS & Client Platform",
+        "role": "Software Developer",
+        "country": "ID",
+        "start": "2022-07",
+        "end": "2022-10",
+        "listing": "public",
+        "order": 70,
+        "description": {
+          "en": "Developed and maintained CMS and client-facing web applications for a confidential fintech project while working with Rolling Glory."
+        },
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Material UI",
+          "Styled Components"
+        ]
+      }
+    ],
+    "assessments": [
+      {
+        "id": "aiSessionManager",
+        "title": "AI Session Manager",
+        "company": "MyConnect.ai",
+        "year": 2026,
+        "listing": "public",
+        "description": {
+          "en": "A Next.js application for creating and managing AI conversation sessions, with a pluggable AI provider, simulated delays and failures, error monitoring, dark mode and unit tests."
+        },
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Prisma",
+          "SQLite",
+          "TanStack Query",
+          "Framer Motion",
+          "Vitest"
+        ],
+        "repository": "test-ai-session-manager",
+        "repositoryVisibility": "public"
+      },
+      {
+        "id": "evermosFrontend",
+        "title": "E-commerce Storefront",
+        "company": "Evermos",
+        "year": 2024,
+        "listing": "public",
+        "description": {
+          "en": "A Nuxt storefront with product listings, categories, search and product detail pages, using Pinia and server API routes over mock product data."
+        },
+        "technologies": [
+          "Nuxt.js",
+          "Vue.js",
+          "TypeScript",
+          "Pinia",
+          "Sass"
+        ],
+        "repository": "test-evermos-fe",
+        "repositoryVisibility": "public"
+      },
+      {
+        "id": "angularEmployeeManagement",
+        "title": "Employee Management App",
+        "company": "Mandiri",
+        "year": 2023,
+        "listing": "public",
+        "description": {
+          "en": "An Angular employee management app with login, a dashboard, and employee list, detail and create pages backed by a mock JSON API."
+        },
+        "technologies": [
+          "Angular",
+          "TypeScript",
+          "Tailwind CSS",
+          "RxJS"
+        ],
+        "repository": "test-fe-angular-web-developer",
+        "repositoryVisibility": "public"
+      },
+      {
+        "id": "pixelHouse1Kanban",
+        "title": "Algorithms and Kanban Board",
+        "company": "Pixel House Studio",
+        "year": 2020,
+        "listing": "public",
+        "description": {
+          "en": "JavaScript algorithm exercises covering palindromes, random arrays and sorting, alongside a Vue kanban board using Vuex state management."
+        },
+        "technologies": [
+          "Vue.js",
+          "Vuex",
+          "Buefy",
+          "JavaScript"
+        ],
+        "repository": "test-pixel-house",
+        "repositoryVisibility": "public"
+      },
+      {
+        "id": "pixelHouse2DataTable",
+        "title": "Data Table Manager",
+        "company": "Pixel House Studio",
+        "year": 2020,
+        "listing": "public",
+        "description": {
+          "en": "A Vue and Quasar data table with search, filtering, single and bulk update and delete, and Jest unit tests."
+        },
+        "technologies": [
+          "Vue.js",
+          "Vuex",
+          "Quasar",
+          "Jest"
+        ],
+        "repository": "test-pixel-house-2",
+        "repositoryVisibility": "public"
+      },
+      {
+        "id": "refactoryGraphqlApi",
+        "title": "Meeting Room Booking GraphQL API",
+        "company": "Refactory",
+        "year": 2020,
+        "listing": "public",
+        "description": {
+          "en": "A GraphQL API for the meeting room booking service, exposing users, rooms and bookings through Apollo Server on top of the REST API."
+        },
+        "technologies": [
+          "Node.js",
+          "GraphQL",
+          "Apollo Server",
+          "Axios"
+        ]
+      },
+      {
+        "id": "refactoryRestApi",
+        "title": "Meeting Room Booking REST API",
+        "company": "Refactory",
+        "year": 2020,
+        "listing": "public",
+        "description": {
+          "en": "A meeting room booking REST API with authentication, room and booking management, MySQL migrations and seeders, and email notifications."
+        },
+        "technologies": [
+          "Node.js",
+          "Express.js",
+          "MySQL",
+          "JWT",
+          "Nodemailer",
+          "SendGrid"
+        ]
+      }
+    ]
+  },
+  "origins": [
+    {
+      "id": "coursesLearning",
+      "title": "Courses & Learning",
+      "year": 2020,
+      "order": 10,
+      "listing": "public",
+      "description": {
+        "en": "Continued learning through Python, React, Laravel, React Native and Kotlin, including coursework, coding exercises, quizzes and final projects."
+      },
+      "technologies": [
+        "Python",
+        "JavaScript",
+        "React",
+        "React Native",
+        "PHP",
+        "Laravel",
+        "Kotlin"
+      ]
+    },
+    {
+      "id": "realtimeSlideshow",
+      "title": "Real-Time Slideshow",
+      "year": 2020,
+      "order": 20,
+      "listing": "public",
+      "description": {
+        "en": "A Vue carousel synchronized across viewers in real time using Socket.io to broadcast slide changes."
+      },
+      "technologies": [
+        "Vue.js",
+        "BootstrapVue",
+        "Socket.io",
+        "Node.js"
+      ],
+      "repositories": [
+        {
+          "name": "realtime-slideshow",
+          "role": "Application"
+        }
+      ]
+    },
+    {
+      "id": "ecommerceApplications",
+      "title": "E-commerce Applications",
+      "year": 2020,
+      "order": 30,
+      "listing": "public",
+      "description": {
+        "en": "A three-part e-commerce application with a tested REST API, an admin dashboard for managing products, categories and users, and a customer storefront with cart and checkout functionality."
+      },
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "Sequelize",
+        "PostgreSQL",
+        "JWT",
+        "Jest",
+        "Supertest",
+        "Vue.js",
+        "Vuex",
+        "Vue Router",
+        "Vuetify"
+      ],
+      "repositories": [
+        {
+          "name": "ecommerce-server",
+          "role": "Server"
+        },
+        {
+          "name": "ecommerce-admin",
+          "role": "Admin"
+        },
+        {
+          "name": "ecommerce-customer",
+          "role": "Customer"
+        }
+      ]
+    },
+    {
+      "id": "fullStackKanban",
+      "title": "Full-Stack Kanban",
+      "year": 2020,
+      "order": 40,
+      "listing": "public",
+      "description": {
+        "en": "A full-stack Kanban board with a REST API and Vue client, supporting categories, tasks, Google Sign-In and per-user authorization."
+      },
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "Sequelize",
+        "PostgreSQL",
+        "JWT",
+        "Vue.js",
+        "Google Sign-In"
+      ],
+      "repositories": [
+        {
+          "name": "kanban",
+          "role": "Server"
+        },
+        {
+          "name": "kanban-porto",
+          "role": "Client"
+        }
+      ]
+    },
+    {
+      "id": "firstAttack",
+      "title": "First Attack!",
+      "year": 2019,
+      "order": 50,
+      "listing": "public",
+      "description": {
+        "en": "Attack Wars is a turn-based browser battle game built with JavaScript, featuring a story intro, hero naming, difficulty levels, critical attacks, spells and replay."
+      },
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "repositories": [
+        {
+          "name": "javascript-Game",
+          "role": "Game"
+        }
+      ]
+    },
+    {
+      "id": "weCanCode",
+      "title": "We Can Code",
+      "year": 2019,
+      "order": 60,
+      "listing": "public",
+      "description": {
+        "en": "A multi-page coding-course website concept with lessons, a playground and a quiz, built using HTML and CSS."
+      },
+      "technologies": [
+        "HTML",
+        "CSS",
+        "Font Awesome"
+      ],
+      "repositories": [
+        {
+          "name": "Fikrimarzuki.github.io",
+          "role": "Website"
+        }
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "forgebox",
+      "title": "Forgebox",
+      "kind": "concept",
+      "order": 10
+    },
+    {
+      "id": "hearthside",
+      "title": "Hearthside",
+      "kind": "concept",
+      "order": 20
+    },
+    {
+      "id": "momee",
+      "title": "Momee",
+      "kind": "concept",
+      "order": 30
+    },
+    {
+      "id": "comingSoon",
+      "title": "Coming Soon",
+      "kind": "placeholder",
+      "order": 40
+    }
+  ]
+}

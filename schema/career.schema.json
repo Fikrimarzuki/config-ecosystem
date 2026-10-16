@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://config-ecosystem.invalid/schema/career.schema.json",
+  "title": "Career",
+  "description": "The career section of the assembled config: three arrays of records that keep their id. Each record definition also describes its source file (config/career/<collection>/<id>.json). Cross-record rules (unique ids, date ranges, ordering, relatedProjects, asset folders) are enforced by scripts/validate.mjs.",
+  "type": "object",
+  "required": ["experience", "freelance", "assessments"],
+  "additionalProperties": false,
+  "properties": {
+    "experience": {
+      "description": "Employment history, sorted by start ascending, then id.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/experience" }
+    },
+    "freelance": {
+      "description": "Project-focused engagements, sorted by order ascending, then id. The collection is a grouping, not an employment type.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/freelance" }
+    },
+    "assessments": {
+      "description": "Curated technical assessments, sorted by year descending, then id.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/assessment" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "description": "must be a camelCase identifier (a lowercase letter, then letters and digits)",
+      "type": "string",
+      "pattern": "^[a-z][a-zA-Z0-9]*$"
+    },
+    "localId": {
+      "description": "must be a lowercase kebab-case identifier (a-z, 0-9, single '-' between parts)",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "yearMonth": {
+      "description": "must be a YYYY-MM date with a month from 01 to 12",
+      "type": "string",
+      "pattern": "^[0-9]{4}-(?:0[1-9]|1[0-2])$"
+    },
+    "ongoingYearMonth": {
+      "description": "must be a YYYY-MM date with a month from 01 to 12, or null for ongoing",
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-(?:0[1-9]|1[0-2])$"
+    },
+    "country": {
+      "description": "must be an ISO 3166-1 alpha-2 country code in uppercase, e.g. ID",
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "relatedProjects": {
+      "description": "Canonical project IDs this record refers to. Directional: projects never refer back.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "project.schema.json#/$defs/key" }
+    },
+    "workItem": {
+      "description": "A piece of work inside an experience record. Not a canonical ecosystem project.",
+      "type": "object",
+      "required": ["id", "title", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/localId" },
+        "title": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "description": { "$ref": "project.schema.json#/$defs/localizedText" },
+        "technologies": { "$ref": "project.schema.json#/$defs/technologies" },
+        "start": { "$ref": "#/$defs/yearMonth" },
+        "end": { "$ref": "#/$defs/ongoingYearMonth" },
+        "assets": { "$ref": "project.schema.json#/$defs/projectAssets" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    },
+    "component": {
+      "description": "A part of a freelance project. Components share the parent record's gallery and have no assets of their own.",
+      "type": "object",
+      "required": ["id", "title"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/localId" },
+        "title": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "description": { "$ref": "project.schema.json#/$defs/localizedText" },
+        "technologies": { "$ref": "project.schema.json#/$defs/technologies" }
+      }
+    },
+    "experience": {
+      "description": "One employer. end is required: a YYYY-MM date, or null for ongoing employment. No repository or deployment fields.",
+      "type": "object",
+      "required": ["id", "company", "role", "start", "end", "listing"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "company": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "role": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "start": { "$ref": "#/$defs/yearMonth" },
+        "end": { "$ref": "#/$defs/ongoingYearMonth" },
+        "country": { "$ref": "#/$defs/country" },
+        "listing": { "$ref": "project.schema.json#/$defs/listing" },
+        "description": { "$ref": "project.schema.json#/$defs/localizedText" },
+        "technologies": { "$ref": "project.schema.json#/$defs/technologies" },
+        "work": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/workItem" }
+        },
+        "assets": { "$ref": "project.schema.json#/$defs/projectAssets" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    },
+    "freelance": {
+      "description": "One project-focused engagement. engagement is optional and never implied by the collection. order sets the curated presentation order. No repository or deployment fields.",
+      "type": "object",
+      "required": ["id", "title", "listing", "order"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "title": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "role": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "client": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "engagement": {
+          "description": "The actual engagement type, when stated. Omit it rather than guess.",
+          "enum": ["freelance", "contract", "full-time", "part-time"]
+        },
+        "country": { "$ref": "#/$defs/country" },
+        "start": { "$ref": "#/$defs/yearMonth" },
+        "end": { "$ref": "#/$defs/ongoingYearMonth" },
+        "listing": { "$ref": "project.schema.json#/$defs/listing" },
+        "order": {
+          "description": "Curated presentation order (ascending). Unique across the collection.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "description": { "$ref": "project.schema.json#/$defs/localizedText" },
+        "technologies": { "$ref": "project.schema.json#/$defs/technologies" },
+        "components": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/component" }
+        },
+        "assets": { "$ref": "project.schema.json#/$defs/projectAssets" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    },
+    "assessment": {
+      "description": "One curated technical assessment. A repository may be linked only when it is public. No deployment fields.",
+      "type": "object",
+      "required": ["id", "title", "year", "listing"],
+      "additionalProperties": false,
+      "dependentRequired": {
+        "repository": ["repositoryVisibility"],
+        "repositoryVisibility": ["repository"]
+      },
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "title": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "company": {
+          "description": "The company that set the assessment, when verified. Omit rather than guess.",
+          "$ref": "project.schema.json#/$defs/meaningfulString"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 9999
+        },
+        "listing": { "$ref": "project.schema.json#/$defs/listing" },
+        "description": { "$ref": "project.schema.json#/$defs/localizedText" },
+        "technologies": { "$ref": "project.schema.json#/$defs/technologies" },
+        "repository": {
+          "description": "Public GitHub repository name under the configured username.",
+          "$ref": "project.schema.json#/$defs/repositoryName"
+        },
+        "repositoryVisibility": {
+          "description": "Only public repositories may be linked from an assessment.",
+          "const": "public"
+        },
+        "assets": { "$ref": "project.schema.json#/$defs/projectAssets" },
+        "relatedProjects": { "$ref": "#/$defs/relatedProjects" }
+      }
+    }
+  }
+}
