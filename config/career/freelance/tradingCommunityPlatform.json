@@ -1,0 +1,18 @@
+{
+  "id": "tradingCommunityPlatform",
+  "title": "Trading Community Platform",
+  "role": "Technical Project Consultant",
+  "country": "ID",
+  "start": "2023-10",
+  "end": "2024-02",
+  "listing": "public",
+  "order": 60,
+  "description": {
+    "en": "Audited an existing web platform, identified feature gaps through technical and UI reviews, and planned development roadmaps and sprint backlogs."
+  },
+  "technologies": [
+    "Jira",
+    "Whimsical",
+    "Figma"
+  ]
+}

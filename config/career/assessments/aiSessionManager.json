@@ -1,0 +1,22 @@
+{
+  "id": "aiSessionManager",
+  "title": "AI Session Manager",
+  "company": "MyConnect.ai",
+  "year": 2026,
+  "listing": "public",
+  "description": {
+    "en": "A Next.js application for creating and managing AI conversation sessions, with a pluggable AI provider, simulated delays and failures, error monitoring, dark mode and unit tests."
+  },
+  "technologies": [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Prisma",
+    "SQLite",
+    "TanStack Query",
+    "Framer Motion",
+    "Vitest"
+  ],
+  "repository": "test-ai-session-manager",
+  "repositoryVisibility": "public"
+}

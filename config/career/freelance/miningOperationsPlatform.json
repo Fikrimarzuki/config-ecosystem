@@ -1,0 +1,58 @@
+{
+  "id": "miningOperationsPlatform",
+  "title": "Mining Operations Platform",
+  "role": "Frontend Developer",
+  "country": "AU",
+  "start": "2025-06",
+  "end": "2025-10",
+  "listing": "public",
+  "order": 20,
+  "description": {
+    "en": "Developed web and mobile applications for a mining operations platform, including a block builder for mining planning, live camera and video management, dashboards, and a React Native task management app."
+  },
+  "technologies": [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "React Native",
+    "TanStack Query",
+    "shadcn/ui"
+  ],
+  "components": [
+    {
+      "id": "operations-application",
+      "title": "Operations Application"
+    },
+    {
+      "id": "block-builder",
+      "title": "Block Builder",
+      "description": {
+        "en": "Block builder application for mining planning and operations."
+      }
+    },
+    {
+      "id": "live-camera-video",
+      "title": "Live Camera & Video Management",
+      "description": {
+        "en": "Camera management with live streaming and video management."
+      }
+    },
+    {
+      "id": "dashboards",
+      "title": "Dashboards",
+      "description": {
+        "en": "Administrative dashboard."
+      }
+    },
+    {
+      "id": "task-management-app",
+      "title": "Task Management App",
+      "description": {
+        "en": "React Native application for task management."
+      },
+      "technologies": [
+        "React Native"
+      ]
+    }
+  ]
+}

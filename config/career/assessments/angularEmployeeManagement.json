@@ -1,0 +1,18 @@
+{
+  "id": "angularEmployeeManagement",
+  "title": "Employee Management App",
+  "company": "Mandiri",
+  "year": 2023,
+  "listing": "public",
+  "description": {
+    "en": "An Angular employee management app with login, a dashboard, and employee list, detail and create pages backed by a mock JSON API."
+  },
+  "technologies": [
+    "Angular",
+    "TypeScript",
+    "Tailwind CSS",
+    "RxJS"
+  ],
+  "repository": "test-fe-angular-web-developer",
+  "repositoryVisibility": "public"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "pixelHouseStudio",
+  "company": "Pixel House Studio",
+  "role": "Software Engineer",
+  "start": "2020-06",
+  "end": "2021-12",
+  "country": "ID",
+  "listing": "public",
+  "description": {
+    "en": "Developed a page builder and rendering engine for drag-and-drop website creation, frontend applications with Vue.js and Nuxt.js, and Node.js migration scripts for legacy data."
+  },
+  "technologies": [
+    "Vue.js",
+    "Nuxt.js",
+    "Bootstrap",
+    "Sass",
+    "Node.js",
+    "PostgreSQL",
+    "CircleCI"
+  ],
+  "work": [
+    {
+      "id": "managix-page-builder",
+      "title": "Managix Page Builder",
+      "description": {
+        "en": "Developed a drag-and-drop website page builder and rendering engine, including live preview and publishing workflows."
+      },
+      "technologies": [
+        "Vue.js",
+        "Nuxt.js"
+      ]
+    },
+    {
+      "id": "nodejs-data-converter",
+      "title": "Node.js Data Converter",
+      "description": {
+        "en": "Developed Node.js scripts for converting and migrating legacy data."
+      },
+      "technologies": [
+        "Node.js"
+      ]
+    }
+  ]
+}

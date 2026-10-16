@@ -1,0 +1,21 @@
+{
+  "id": "spacetoco",
+  "company": "SpacetoCo",
+  "role": "Full Stack Engineer",
+  "start": "2026-04",
+  "end": null,
+  "country": "AU",
+  "listing": "public",
+  "description": {
+    "en": "Build and maintain APIs, backend services and features across customer-facing and internal applications, and contribute to platform architecture, shared infrastructure, reliability, observability and testing."
+  },
+  "technologies": [
+    "Nuxt.js",
+    "FeathersJS",
+    "TypeScript",
+    "Tailwind CSS",
+    "MongoDB",
+    "Terraform",
+    "OpenTelemetry"
+  ]
+}

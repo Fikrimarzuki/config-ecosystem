@@ -1,0 +1,16 @@
+{
+  "id": "refactoryGraphqlApi",
+  "title": "Meeting Room Booking GraphQL API",
+  "company": "Refactory",
+  "year": 2020,
+  "listing": "public",
+  "description": {
+    "en": "A GraphQL API for the meeting room booking service, exposing users, rooms and bookings through Apollo Server on top of the REST API."
+  },
+  "technologies": [
+    "Node.js",
+    "GraphQL",
+    "Apollo Server",
+    "Axios"
+  ]
+}

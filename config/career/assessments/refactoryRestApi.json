@@ -1,0 +1,18 @@
+{
+  "id": "refactoryRestApi",
+  "title": "Meeting Room Booking REST API",
+  "company": "Refactory",
+  "year": 2020,
+  "listing": "public",
+  "description": {
+    "en": "A meeting room booking REST API with authentication, room and booking management, MySQL migrations and seeders, and email notifications."
+  },
+  "technologies": [
+    "Node.js",
+    "Express.js",
+    "MySQL",
+    "JWT",
+    "Nodemailer",
+    "SendGrid"
+  ]
+}
