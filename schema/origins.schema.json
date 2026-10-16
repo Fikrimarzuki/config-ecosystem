@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://config-ecosystem.invalid/schema/origins.schema.json",
+  "title": "Origins",
+  "description": "The origins archive in the assembled config: a curated array of early-development entries that keep their id, sorted by order ascending, then id. Each entry definition also describes its source file (config/origins/<id>.json). Cross-record rules (unique ids, orders and repositories, relatedProjects, asset folders) are enforced by scripts/validate.mjs.",
+  "type": "array",
+  "items": { "$ref": "#/$defs/entry" },
+  "$defs": {
+    "repository": {
+      "description": "A public GitHub repository under the configured username.",
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "project.schema.json#/$defs/repositoryName" },
+        "role": {
+          "description": "What this repository is within the entry, e.g. Server or Client.",
+          "$ref": "project.schema.json#/$defs/meaningfulString"
+        }
+      }
+    },
+    "entry": {
+      "description": "One curated early-development milestone. No destination, presentation or deployment fields.",
+      "type": "object",
+      "required": ["id", "title", "year", "order", "listing"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "career.schema.json#/$defs/id" },
+        "title": { "$ref": "project.schema.json#/$defs/meaningfulString" },
+        "year": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 9999
+        },
+        "order": {
+          "description": "Curated presentation order (ascending). Unique across the archive.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "listing": { "$ref": "project.schema.json#/$defs/listing" },
+        "description": { "$ref": "project.schema.json#/$defs/localizedText" },
+        "technologies": { "$ref": "project.schema.json#/$defs/technologies" },
+        "repositories": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/repository" }
+        },
+        "relatedProjects": { "$ref": "career.schema.json#/$defs/relatedProjects" },
+        "assets": { "$ref": "project.schema.json#/$defs/projectAssets" }
+      }
+    }
+  }
+}

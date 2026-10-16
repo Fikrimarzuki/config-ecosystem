@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "consumers": [
+    {
+      "repository": "web-gateway",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs config/production.json and the resume asset from main at build time; fails the build with no fallback.",
+        "Supports subdomain, apex (subdomain: null) and alias deployments, and explicit deployment.url (used as written).",
+        "Links repositories only when repositoryVisibility is public. Parses the current generated configuration.",
+        "Its resolver does not yet expose career, origins or concepts (dropped during resolution); Gateway Universe (G7) integration is pending."
+      ]
+    },
+    {
+      "repository": "web-cv",
+      "status": "blocked",
+      "notify": false,
+      "notes": [
+        "Syncs config/production.json at build time; the sync accepts the current top-level structure (it checks only projects and domains).",
+        "On a failed sync it falls back to its committed snapshot, which can serve stale data.",
+        "Its deployment resolver ignores deployment.url and builds a URL from subdomain, so an external deployment would resolve to the apex domain.",
+        "Its Developer Roadmap card resolves the roadmap project (the Learning Roadmap app) and needs review. Consumer fixes are tracked separately."
+      ]
+    },
+    {
+      "repository": "web-support",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs dist/ecosystem.json at build time with no fallback; a failed sync deletes the generated file and fails dev, build, typecheck and test.",
+        "Validates and copies only what it uses: version, domains.primary, ecosystem.name, and for projects status, listing, name, destination, deployments.main and description. Unknown fields are ignored; career, origins, concepts, profile, repositories, assets and taglines are not read.",
+        "Its contact-form selector offers public, active projects only and excludes itself by the project ID support. An offered project with an unknown destination fails its build.",
+        "Resolves deployments.main URLs per the contract (external url as written, subdomain: null as apex) for a planned Open link.",
+        "Deployment platform (Vercel per its README) and failure behaviour not verified beyond the repository."
+      ]
+    }
+  ]
+}

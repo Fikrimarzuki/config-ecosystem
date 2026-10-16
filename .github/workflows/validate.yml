@@ -1,0 +1,53 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+
+      # Uses the version from "packageManager" in package.json.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Assemble global.json and every source collection (projects, career, origins, concepts)
+      # → dist/ecosystem.json + config/production.json. Fails on invalid or misplaced sources.
+      - run: pnpm build
+
+      # Validate the assembled config
+      - run: pnpm validate
+
+      # Schema, semantic, source-tree and committed-data tests for every collection
+      - run: pnpm test
+
+      # The generated files are committed (consumers fetch them from GitHub), so
+      # they must match what the build produces from the sources.
+      - name: Check generated files are up to date
+        run: |
+          if [ -n "$(git status --porcelain -- config/production.json dist/ecosystem.json)" ]; then
+            echo "::error::Generated files are out of date: config/production.json and/or dist/ecosystem.json differ from what 'pnpm build' produces."
+            echo "Run 'pnpm build' locally and commit the regenerated files. Do not edit them by hand; edit config/global.json or the source collections (config/projects, config/career, config/origins, config/concepts) instead."
+            git status --short -- config/production.json dist/ecosystem.json
+            git --no-pager diff -- config/production.json dist/ecosystem.json | head -50
+            exit 1
+          fi
