@@ -1,0 +1,52 @@
+{
+  "branchesHeadsAndIndexesPreserved": true,
+  "baselineFiles": {
+    "config-ecosystem": 116,
+    "web-gateway": 1531
+  },
+  "changedExistingFiles": {
+    "config-ecosystem": [
+      "README.md",
+      "config/production.json",
+      "dist/ecosystem.json",
+      "docs/consumers/integration.md",
+      "schema/ecosystem.schema.json",
+      "scripts/build.mjs",
+      "scripts/review-career-field.mjs",
+      "scripts/validate.mjs",
+      "test/build.test.mjs"
+    ],
+    "web-gateway": []
+  },
+  "gatewayStatusAndFilesByteIdentical": true,
+  "generatedFilesByteIdentical": true,
+  "deterministicAssembly": true,
+  "onlyGeneratedAddition": "conceptsPublication: []",
+  "allExistingRecordsOrderingAndMetadataUnchanged": true,
+  "realConceptsGrants": 0,
+  "realCareerGrantsEmpty": true,
+  "careerFingerprintContractByteIdentical": true,
+  "noDeploymentOrDependencyChanges": true,
+  "gatewayRejectsNewShape": true,
+  "gatewayAcceptsLegacyShape": true,
+  "legacySnapshotRemainsValid": true,
+  "newFiles": [
+    "config/concepts-publication.json",
+    "docs/concepts-publication-approvals.md",
+    "docs/diagnostics/m8.6b.1/README.md",
+    "docs/diagnostics/m8.6b.1/build-tests-recheck.log",
+    "docs/diagnostics/m8.6b.1/build.log",
+    "docs/diagnostics/m8.6b.1/canonical-tests.log",
+    "docs/diagnostics/m8.6b.1/concepts-tests.log",
+    "docs/diagnostics/m8.6b.1/test-summary.json",
+    "docs/diagnostics/m8.6b.1/validate-dist.log",
+    "docs/diagnostics/m8.6b.1/validate.log",
+    "docs/diagnostics/m8.6b.1/verification.json",
+    "docs/diagnostics/m8.6b.1/verify.mjs",
+    "schema/concepts-publication.schema.json",
+    "scripts/concepts-approval-fingerprint.mjs",
+    "scripts/concepts-publication.mjs",
+    "test/concepts-publication.test.mjs"
+  ],
+  "newSourceAndEvidencePrivateValueScan": "No real concept references, unapproved titles, narratives or real approval evidence copied"
+}

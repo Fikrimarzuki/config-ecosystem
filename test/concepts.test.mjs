@@ -12,7 +12,8 @@ import { assertInvalid, assertValid, production, root, temporaryDirectory, write
 const concept = (fields = {}) => ({ id: "exampleConcept", title: "Example Concept", kind: "concept", order: 5, ...fields });
 
 /** Mutator that replaces the concepts collection. */
-const concepts = (list) => (c) => { c.concepts = list; };
+// Synthetic record replacements have no inherited real publication authority.
+const concepts = (list) => (c) => { c.concepts = list; c.conceptsPublication = []; };
 
 describe("concepts collection", () => {
   test("always exists in the generated output, as an array", () => assert.ok(Array.isArray(production.concepts)));

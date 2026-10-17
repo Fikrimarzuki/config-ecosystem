@@ -1,0 +1,26 @@
+{
+  "initialFocusedRun": {
+    "passed": 51,
+    "failed": 4,
+    "reason": "Test fixture used the assembled API with the wrong parameter shape and reused an assessment repository; no validation rule was weakened."
+  },
+  "intermediateFocusedRun": {
+    "reason": "An intermediate recheck exposed missing source-file id in the synthetic builder fixture; corrected without changing validation rules. Its exact per-run count was not retained."
+  },
+  "finalFocusedRun": {
+    "passed": 55,
+    "failed": 0
+  },
+  "fullSuiteRun": {
+    "passed": 741,
+    "failed": 1,
+    "reason": "Existing generated-field assertion required the prior top-level list; updated to explicitly include conceptsPublication."
+  },
+  "affectedBuildFileRecheck": {
+    "passed": 23,
+    "failed": 0
+  },
+  "distinctCanonicalChecksVerified": 742,
+  "fullSuiteRuns": 1,
+  "note": "Initial raw failure logs remain scratch-only because an incorrect test fixture briefly read the real registry. No real selectors or approval evidence are copied into this summary."
+}

@@ -1225,5 +1225,47 @@
       "kind": "placeholder",
       "order": 40
     }
+  ],
+  "careerPublication": {
+    "experience": [],
+    "work": [],
+    "freelance": [],
+    "components": [],
+    "assessments": []
+  },
+  "conceptsPublication": [
+    {
+      "id": "forgebox",
+      "fields": [
+        "title"
+      ],
+      "fingerprints": {
+        "fields": {
+          "title": "sha256:af534a918ea0fdfa392c6c267c640288d5e9a978fbc10d49e7cda86f14559ef2"
+        }
+      }
+    },
+    {
+      "id": "hearthside",
+      "fields": [
+        "title"
+      ],
+      "fingerprints": {
+        "fields": {
+          "title": "sha256:282c390db263df31aed0df609c31f538fd14cabd4591e8afb4211f6e13babd62"
+        }
+      }
+    },
+    {
+      "id": "momee",
+      "fields": [
+        "title"
+      ],
+      "fingerprints": {
+        "fields": {
+          "title": "sha256:ce6ff9112b5f48c0b53e6a4ad32ab0fefe1cd353ee183715ba2a2f925660b191"
+        }
+      }
+    }
   ]
 }

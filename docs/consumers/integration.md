@@ -27,7 +27,8 @@ Top-level shape of the output:
   "projects": { "playdeck": { "name": "Playdeck" } },
   "career": { "experience": [], "freelance": [], "assessments": [] },
   "origins": [],
-  "concepts": []
+  "concepts": [],
+  "careerPublication": { "experience": [], "work": [], "freelance": [], "components": [], "assessments": [] }
 }
 ```
 
@@ -37,6 +38,7 @@ Top-level shape of the output:
 * `career` is always present, with three **arrays** (`experience`, `freelance`, `assessments`) that may be empty. See [section 6](#6-career).
 * `origins` is always present, as an **array** that may be empty. See [section 7](#7-origins).
 * `concepts` is always present, as an **array** that may be empty. See [section 8](#8-concepts).
+* `careerPublication` is optional for older version-1 inputs; absence denies all Gateway Career publication. The current build emits five empty independent grant lists from `config/career-publication.json`. Canonical listing is not permission. See the [publication contract](../diagnostics/m8.4a.1a/README.md) before consuming it; grants, their canonical selectors and content fingerprints are build-only, not a visitor-facing DTO. Every nonempty grant requires per-selection fingerprints; missing/stale evidence fails validation. See the [current value-bound approval contract](../career-publication-approvals.md) for coordinated consumer updates and migration.
 
 ## 2. Build-time synchronization
 
@@ -221,17 +223,13 @@ const repositoryUrls = (entry) =>
 
 ## 8. Concepts
 
-`concepts` is an **array** of future project ideas (the Gateway Asteroid Field), always present and possibly empty. A concept is a title only and is not a project: don't look it up in `projects`.
+`concepts` is the canonical array of future project ideas/slots, always present and sorted by `order` ascending, then `id`. It is separate from ordinary projects. Its raw fields remain `id`, `title`, `kind`, `order`; it has no descriptions, repository/deployment actions, technologies, dates or progress. Do not invent those fields or promises.
 
-```js
-const slots = config.concepts; // already in display order
-const ideas = slots.filter((concept) => concept.kind === "concept");
-```
+**Raw presence is not publication authority.** Optional `conceptsPublication` is an independent, default-deny array from `config/concepts-publication.json`. Absence or `[]` authorizes no titles. A nonempty grant selects only `fields: ["title"]` with `fingerprints.fields.title` binding the concept ID, field and exact canonical title. Invalid, unknown, duplicate or stale grants fail the entire configuration; never fall back or silently discard them to publish the rest.
 
-* **Fields:** exactly `id`, `title`, `kind` and `order`. There is no description, listing, link, date or status, so don't invent any, and don't present a concept as a planned or scheduled project.
-* **`kind`:** `concept` is a project idea; `placeholder` is a slot that isn't an idea yet (for example "Coming Soon"). It is a semantic distinction. Whether a placeholder looks different is your decision, and an unknown `kind` should be skipped or fail the build, not guessed.
-* **Order:** sorted by `order` ascending, then `id`. Render it as given.
-* **Visibility:** every concept is public. There is no `listing` field to filter on.
+After verifying the schemas and semantic/fingerprint checks, a browser-facing consumer filters canonical `concepts` by valid grant identity in the existing array order and copies **only** `{ title }`. IDs, kind, numeric order, grant selectors and evidence stay build-only. New records and placeholder slots have no implicit permission. Neither project visibility nor Career/Origins approvals authorize a concept.
+
+Exactly three Concepts title grants are active: Forgebox, Hearthside and Momee. Gateway M8.6b.2 recognizes and verifies this contract; its in-memory public projection returns those titles only. M8.6b.3 changes no Gateway files or Frontier UI, and does not publish a deployment. See [Concepts publication approvals](../concepts-publication-approvals.md) for exact fingerprint serialization, reviewer use and fail-closed compatibility.
 
 ## 9. When things are unavailable or missing
 

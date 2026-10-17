@@ -15,12 +15,16 @@ import Ajv2020 from "ajv/dist/2020.js";
 import { CAREER_COLLECTIONS, ORDER_DESCRIPTION } from "./career.mjs";
 import { originsOrder, ORIGINS_ORDER_DESCRIPTION } from "./origins.mjs";
 import { conceptsOrder, CONCEPTS_ORDER_DESCRIPTION } from "./concepts.mjs";
+import { checkCareerPublication } from "./career-publication.mjs";
+import { checkConceptsPublication } from "./concepts-publication.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const schemaPath = resolve(root, "schema/ecosystem.schema.json");
 const projectSchemaPath = resolve(root, "schema/project.schema.json");
 const careerSchemaPath = resolve(root, "schema/career.schema.json");
+const careerPublicationSchemaPath = resolve(root, "schema/career-publication.schema.json");
 const originsSchemaPath = resolve(root, "schema/origins.schema.json");
+const conceptsPublicationSchemaPath = resolve(root, "schema/concepts-publication.schema.json");
 const conceptsSchemaPath = resolve(root, "schema/concepts.schema.json");
 
 /** Thrown when a file can't be read or parsed. */
@@ -100,8 +104,10 @@ function validateSchema(config) {
     // relative URI; registering the schemas locally means nothing is ever fetched.
     ajv.addSchema(readJson(projectSchemaPath, "project schema"));
     ajv.addSchema(readJson(careerSchemaPath, "career schema"));
+    ajv.addSchema(readJson(careerPublicationSchemaPath, "career publication schema"));
     ajv.addSchema(readJson(originsSchemaPath, "origins schema"));
     ajv.addSchema(readJson(conceptsSchemaPath, "concepts schema"));
+    ajv.addSchema(readJson(conceptsPublicationSchemaPath, "concepts publication schema"));
     compiledSchema = ajv.compile(readJson(schemaPath, "schema"));
   }
   const validate = compiledSchema;
@@ -448,6 +454,8 @@ function validateSemantics(config) {
   checkMeaningfulStrings(config, "", errors);
   checkAssets(config, errors);
   checkCareer(config, errors);
+  checkCareerPublication(config, errors);
+  checkConceptsPublication(config, errors);
   checkOrigins(config, errors);
   checkConcepts(config, errors);
 

@@ -1,0 +1,37 @@
+▶ career sources
+  ✔ missing career folders produce three empty collections (61.458375ms)
+  ✔ empty folders with a .gitkeep produce empty collections (1.222625ms)
+  ✔ records keep their id in the output (0.987666ms)
+  ✔ projects stay an object keyed by id, without the id field (0.564417ms)
+  ✔ rejects a filename/id mismatch (0.900042ms)
+  ✔ rejects a missing id (0.68ms)
+  ✔ rejects a record that fails its collection schema, naming the file (0.97675ms)
+  ✔ validates each folder against its own collection schema (1.203083ms)
+  ✔ rejects invalid JSON (0.851958ms)
+  ✔ rejects a duplicate id across career collections (0.95975ms)
+  ✔ rejects a career id that collides with a project id (0.931166ms)
+  ✔ rejects an unknown folder in config/career (0.661958ms)
+  ✔ rejects a career key in global.json (0.412709ms)
+  ✔ still rejects a projects key in global.json (0.385209ms)
+✔ career sources (72.92225ms)
+▶ deterministic ordering
+  ✔ experience is sorted by start ascending, then id (1.974292ms)
+  ✔ freelance is sorted by order ascending, then id (1.513083ms)
+  ✔ assessments are sorted by year descending, then id (1.429291ms)
+  ✔ assembling twice gives byte-identical output (4.367125ms)
+  ✔ the assembled fixture passes full validation (44.283375ms)
+  ✔ duplicate freelance order is caught by validation (1.74425ms)
+✔ deterministic ordering (55.4795ms)
+▶ generated files
+  ✔ config/production.json and dist/ecosystem.json are byte-identical (0.060333ms)
+  ✔ the committed output matches what the build assembles from this repository (3.839459ms)
+  ✔ the output keeps every existing top-level field and appends independent publication declarations (0.148916ms)
+✔ generated files (4.120875ms)
+ℹ tests 23
+ℹ suites 3
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 227.44525

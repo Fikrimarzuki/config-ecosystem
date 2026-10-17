@@ -6,9 +6,13 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "build": "node scripts/build.mjs",
-    "test": "node --test \"test/*.test.mjs\""
+    "test": "node --test \"test/*.test.mjs\"",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "ajv": "^8.20.0"
+    "ajv": "^8.20.0",
+    "vitepress": "1.6.4"
   }
 }

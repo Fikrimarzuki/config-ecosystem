@@ -1,0 +1,51 @@
+{
+  "ownerAuthorizedTitles": [
+    "Forgebox",
+    "Hearthside",
+    "Momee"
+  ],
+  "grantCount": 3,
+  "canonicalSourceOrder": [
+    "Forgebox",
+    "Hearthside",
+    "Momee"
+  ],
+  "candidates": [
+    {
+      "title": "Forgebox",
+      "sourceUnchangedSinceM86b2": true,
+      "exactTitleMatch": true,
+      "intendedIdentityVerified": true,
+      "fields": [
+        "title"
+      ],
+      "canonicalFingerprintAndReviewerAgree": true,
+      "priorPublicationStatus": "not-authorized"
+    },
+    {
+      "title": "Hearthside",
+      "sourceUnchangedSinceM86b2": true,
+      "exactTitleMatch": true,
+      "intendedIdentityVerified": true,
+      "fields": [
+        "title"
+      ],
+      "canonicalFingerprintAndReviewerAgree": true,
+      "priorPublicationStatus": "not-authorized"
+    },
+    {
+      "title": "Momee",
+      "sourceUnchangedSinceM86b2": true,
+      "exactTitleMatch": true,
+      "intendedIdentityVerified": true,
+      "fields": [
+        "title"
+      ],
+      "canonicalFingerprintAndReviewerAgree": true,
+      "priorPublicationStatus": "not-authorized"
+    }
+  ],
+  "reviewerReadOnly": true,
+  "noOtherFieldsOrRecordsApproved": true,
+  "fingerprintValuesOmittedFromDiagnostics": true
+}

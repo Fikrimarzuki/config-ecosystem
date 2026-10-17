@@ -3,6 +3,8 @@
 //
 // Sources:
 //   config/global.json                        — version, username, domains, profile, ecosystem
+//   config/concepts-publication.json          — independent title-only Concepts permissions
+//   config/career-publication.json            — independent field-level Gateway permissions
 //   config/projects/{id}.json                 — one file per project; must contain "id" matching filename
 //   config/career/{collection}/{id}.json      — one file per career record (experience, freelance,
 //                                               assessments); must contain "id" matching filename
@@ -25,11 +27,15 @@ import Ajv2020 from "ajv/dist/2020.js";
 import { CAREER_COLLECTIONS } from "./career.mjs";
 import { originsOrder } from "./origins.mjs";
 import { conceptsOrder } from "./concepts.mjs";
+import { checkCareerPublication, emptyCareerPublication } from "./career-publication.mjs";
+import { checkConceptsPublication, emptyConceptsPublication } from "./concepts-publication.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const projectSchemaPath = resolve(root, "schema/project.schema.json");
 const careerSchemaPath = resolve(root, "schema/career.schema.json");
+const careerPublicationSchemaPath = resolve(root, "schema/career-publication.schema.json");
 const originsSchemaPath = resolve(root, "schema/origins.schema.json");
+const conceptsPublicationSchemaPath = resolve(root, "schema/concepts-publication.schema.json");
 const conceptsSchemaPath = resolve(root, "schema/concepts.schema.json");
 const distDir = resolve(root, "dist");
 
@@ -79,10 +85,16 @@ function getValidators() {
   const originsSchema = readJson(originsSchemaPath, "schema/origins.schema.json");
   ajv.addSchema(projectSchema);
   ajv.addSchema(careerSchema);
+  const careerPublicationSchema = readJson(careerPublicationSchemaPath, "schema/career-publication.schema.json");
+  ajv.addSchema(careerPublicationSchema);
   const conceptsSchema = readJson(conceptsSchemaPath, "schema/concepts.schema.json");
   ajv.addSchema(originsSchema);
   ajv.addSchema(conceptsSchema);
+  const conceptsPublicationSchema = readJson(conceptsPublicationSchemaPath, "schema/concepts-publication.schema.json");
+  ajv.addSchema(conceptsPublicationSchema);
   validators = {
+    conceptsPublication: { validate: ajv.getSchema(conceptsPublicationSchema.$id), schema: "schema/concepts-publication.schema.json" },
+    careerPublication: { validate: ajv.getSchema(careerPublicationSchema.$id), schema: "schema/career-publication.schema.json" },
     project: { validate: ajv.getSchema(projectSchema.$id), schema: "schema/project.schema.json" },
     concepts: { validate: ajv.getSchema(`${conceptsSchema.$id}#/$defs/concept`), schema: "schema/concepts.schema.json#/$defs/concept" },
     origins: { validate: ajv.getSchema(`${originsSchema.$id}#/$defs/entry`), schema: "schema/origins.schema.json#/$defs/entry" },
@@ -215,6 +227,8 @@ export function assemble({ configDir = resolve(root, "config") } = {}) {
   if (missing.length) fail("config/global.json is missing required fields", missing.map((k) => `"${k}"`));
   if ("projects" in global_) fail("config/global.json must not contain projects (edit config/projects/*.json instead)");
   if ("career" in global_) fail("config/global.json must not contain career (edit config/career/<collection>/*.json instead)");
+  if ("careerPublication" in global_) fail("config/global.json must not contain careerPublication (edit config/career-publication.json instead)");
+  if ("conceptsPublication" in global_) fail("config/global.json must not contain conceptsPublication (edit config/concepts-publication.json instead)");
   if ("concepts" in global_) fail("config/global.json must not contain concepts (edit config/concepts/*.json instead)");
   if ("origins" in global_) fail("config/global.json must not contain origins (edit config/origins/*.json instead)");
 
@@ -270,7 +284,39 @@ export function assemble({ configDir = resolve(root, "config") } = {}) {
   for (const { record, source } of conceptRecords) claim(record.id, source);
   const concepts = conceptRecords.map(({ record }) => record).sort(conceptsOrder);
 
-  return { ...global_, projects, career, origins, concepts };
+  const publicationPath = resolve(configDir, "career-publication.json");
+  const careerPublication = existsSync(publicationPath) ? readJson(publicationPath, "config/career-publication.json") : emptyCareerPublication();
+  if (!schemas.careerPublication.validate(careerPublication)) {
+    fail("config/career-publication.json does not match schema/career-publication.schema.json",
+      [...new Set(schemas.careerPublication.validate.errors.map(formatProjectError).filter(Boolean))]);
+  }
+  const conceptsPublicationPath = resolve(configDir, "concepts-publication.json");
+  const conceptsPublication = existsSync(conceptsPublicationPath) ? readJson(conceptsPublicationPath, "config/concepts-publication.json") : emptyConceptsPublication();
+  if (!schemas.conceptsPublication.validate(conceptsPublication)) {
+    fail("config/concepts-publication.json does not match schema/concepts-publication.schema.json",
+      [...new Set(schemas.conceptsPublication.validate.errors.map(formatProjectError).filter(Boolean))]);
+  }
+  const assembled = { ...global_, projects, career, origins, concepts, careerPublication, conceptsPublication };
+  const publicationErrors = [];
+  checkCareerPublication(assembled, publicationErrors);
+  if (publicationErrors.length) fail("Invalid Career publication approvals", publicationErrors);
+  const conceptsPublicationErrors = [];
+  checkConceptsPublication(assembled, conceptsPublicationErrors);
+  if (conceptsPublicationErrors.length) fail("Invalid Concepts publication approvals", conceptsPublicationErrors);
+  // Stable grant serialization is independent of source grant insertion order.
+  conceptsPublication.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  // Stable selector order, independent of grant insertion order. No array index is an identity.
+  for (const grants of Object.values(careerPublication)) {
+    grants.sort((a, b) => {
+      const left = JSON.stringify([a.employerId ?? a.engagementId ?? "", a.id]);
+      const right = JSON.stringify([b.employerId ?? b.engagementId ?? "", b.id]);
+      return left < right ? -1 : left > right ? 1 : 0;
+    });
+    for (const grant of grants) {
+      grant.fields.sort(); grant.technologies?.sort(); grant.relatedProjects?.sort();
+    }
+  }
+  return assembled;
 }
 
 // ─── CLI ──────────────────────────────────────────────────────────────────────

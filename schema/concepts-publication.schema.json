@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://config-ecosystem.invalid/schema/concepts-publication.schema.json",
+  "title": "Gateway Concepts publication permissions",
+  "description": "Default-deny, exact-title-bound permissions. Absence or an empty array authorizes nothing. Selectors and fingerprints are build-time authority, never public Concepts content.",
+  "type": "array",
+  "uniqueItems": true,
+  "items": {
+    "type": "object",
+    "required": ["id", "fields", "fingerprints"],
+    "additionalProperties": false,
+    "properties": {
+      "id": { "$ref": "career.schema.json#/$defs/id" },
+      "fields": {
+        "type": "array", "minItems": 1, "uniqueItems": true,
+        "items": { "enum": ["title"] }
+      },
+      "fingerprints": {
+        "type": "object", "required": ["fields"], "additionalProperties": false,
+        "properties": {
+          "fields": {
+            "type": "object", "required": ["title"], "additionalProperties": false,
+            "properties": { "title": { "$ref": "career-publication.schema.json#/$defs/fingerprint" } }
+          }
+        }
+      }
+    }
+  }
+}

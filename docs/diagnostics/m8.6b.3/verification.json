@@ -1,0 +1,82 @@
+{
+  "approvedTitles": [
+    "Forgebox",
+    "Hearthside",
+    "Momee"
+  ],
+  "activeGrantCount": 3,
+  "fieldsPerGrant": [
+    "title"
+  ],
+  "allCurrentFingerprintsAndReviewerStatesValid": true,
+  "canonicalAndGatewayValidate": true,
+  "publicConceptKeys": [
+    "title"
+  ],
+  "publicProjectionOnlyApprovedTitles": true,
+  "isolatedNegativeChecks": [
+    {
+      "case": "changed title",
+      "canonicalRejected": true,
+      "gatewayRejected": true
+    },
+    {
+      "case": "cross-concept evidence reuse",
+      "canonicalRejected": true,
+      "gatewayRejected": true
+    },
+    {
+      "case": "wrong selected field",
+      "canonicalRejected": true,
+      "gatewayRejected": true
+    },
+    {
+      "case": "replaced evidence",
+      "canonicalRejected": true,
+      "gatewayRejected": true
+    },
+    {
+      "case": "unsupported extra field",
+      "canonicalRejected": true,
+      "gatewayRejected": true
+    },
+    {
+      "case": "unknown concept grant",
+      "canonicalRejected": true,
+      "gatewayRejected": true
+    },
+    {
+      "case": "unreviewed new concept grant",
+      "canonicalRejected": true,
+      "gatewayRejected": true
+    }
+  ],
+  "ungrantedNewRecordRemainsPrivate": true,
+  "deterministicAssembly": true,
+  "generatedFilesByteIdentical": true,
+  "onlyGeneratedDifference": "conceptsPublication empty -> exactly three title grants",
+  "unrelatedCanonicalAndPublicDataUnchanged": true,
+  "changedExistingFiles": {
+    "config-ecosystem": [
+      "README.md",
+      "config/concepts-publication.json",
+      "config/production.json",
+      "dist/ecosystem.json",
+      "docs/concepts-publication-approvals.md",
+      "docs/consumers/integration.md",
+      "test/concepts-publication.test.mjs",
+      "test/concepts.test.mjs"
+    ],
+    "web-gateway": []
+  },
+  "baselineFiles": {
+    "config-ecosystem": 132,
+    "web-gateway": 1559
+  },
+  "gatewayFilesStatusAndGeneratedDataUnchanged": true,
+  "priorEvidenceAndUncommittedWorkPreserved": true,
+  "algorithmsSchemasAndReviewerUnchanged": true,
+  "careerOriginsDeploymentAndDependenciesUnchanged": true,
+  "branchesHeadsIndexesPreserved": true,
+  "newEvidenceHasNoRealSelectorsOrDigests": true
+}
