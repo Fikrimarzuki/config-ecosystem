@@ -38,7 +38,7 @@ Top-level shape of the output:
 * `career` is always present, with three **arrays** (`experience`, `freelance`, `assessments`) that may be empty. See [section 6](#6-career).
 * `origins` is always present, as an **array** that may be empty. See [section 7](#7-origins).
 * `concepts` is always present, as an **array** that may be empty. See [section 8](#8-concepts).
-* `careerPublication` is optional for older version-1 inputs; absence denies all Gateway Career publication. The current build emits five empty independent grant lists from `config/career-publication.json`. Canonical listing is not permission. See the [publication contract](../diagnostics/m8.4a.1a/README.md) before consuming it; grants and their canonical selectors are build-only, not a visitor-facing DTO.
+* `careerPublication` is optional for older version-1 inputs; absence denies all Gateway Career publication. The current build emits five empty independent grant lists from `config/career-publication.json`. Canonical listing is not permission. See the [publication contract](../diagnostics/m8.4a.1a/README.md) before consuming it; grants, their canonical selectors and content fingerprints are build-only, not a visitor-facing DTO. Every nonempty grant requires per-selection fingerprints; missing/stale evidence fails validation. See the [current value-bound approval contract](../career-publication-approvals.md) for coordinated consumer updates and migration.
 
 ## 2. Build-time synchronization
 

@@ -89,3 +89,7 @@ A consumer must satisfy all of these before automatic updates are enabled for it
   * Its deployment resolver ignores `deployment.url` and builds a URL from `subdomain`, so an external deployment would resolve to the apex domain. No project it links uses an external deployment today.
   * Its Developer Roadmap card resolves the `roadmap` project, which is the Learning Roadmap app; `developerRoadmap` is a separate project. The mapping needs review.
 * **Support** resolves `deployments.main` as the guide specifies (an external `url` as written, `subdomain: null` as the apex). Its deployment platform and failure behaviour should still be confirmed before enabling automation (the checklist's last two items).
+
+## M8.4d value-bound Career approval compatibility
+
+Nonempty grants require per-selection fingerprints; legacy nonempty grants are rejected rather than grandfathered. Gateway's vendored schema, semantic checker and fingerprint module must match this repository and revalidate before public projection. Empty/absent grants remain deny-all compatible. No browser-facing Career DTO contains fingerprints. See the [current approval contract](../career-publication-approvals.md); the M8.4a.1b notices above describe the earlier rollout.

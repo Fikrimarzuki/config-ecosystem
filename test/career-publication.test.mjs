@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { assemble, BuildError } from "../scripts/build.mjs";
+import { careerApprovalFingerprint, emptyFingerprints } from "../scripts/career-approval-fingerprint.mjs";
 import { emptyCareerPublication } from "../scripts/career-publication.mjs";
 import { validateConfig } from "../scripts/validate.mjs";
 import { production, root, temporaryDirectory, writeSources } from "./helpers.mjs";
@@ -12,11 +13,11 @@ const employer = id => ({ id, company: "Example employer", role: "Engineer", sta
 const engagement = (id, order) => ({ id, title: "Example engagement", listing: "public", order, components: [{ id: "shared-part", title: "Example component", technologies: ["TypeScript"] }] });
 const assessment = () => ({ id: "exampleAssessment", title: "Example assessment", year: 2024, listing: "public", repository: "example-assessment-source", repositoryVisibility: "public" });
 const target = {
-  experience: { id: "employerA", fields: ["company"] },
-  work: { employerId: "employerA", id: "shared-work", fields: ["title"] },
-  freelance: { id: "engagementA", fields: ["title"] },
-  components: { engagementId: "engagementA", id: "shared-part", fields: ["title"] },
-  assessments: { id: "exampleAssessment", fields: ["title"] },
+  experience: { id: "employerA", fields: ["company"], fingerprints: emptyFingerprints() },
+  work: { employerId: "employerA", id: "shared-work", fields: ["title"], fingerprints: emptyFingerprints() },
+  freelance: { id: "engagementA", fields: ["title"], fingerprints: emptyFingerprints() },
+  components: { engagementId: "engagementA", id: "shared-part", fields: ["title"], fingerprints: emptyFingerprints() },
+  assessments: { id: "exampleAssessment", fields: ["title"], fingerprints: emptyFingerprints() },
 };
 function fixture() {
   const c = structuredClone(production);
@@ -29,7 +30,17 @@ function invalid(c, pattern, heading) {
   const r = validateConfig(c); assert.equal(r.ok, false); assert.match(r.errors.join("\n"), pattern);
   if (heading) assert.match(r.heading, heading);
 }
-function grant(kind) { const c = fixture(); c.careerPublication[kind].push(structuredClone(target[kind])); return c; }
+function reviewed(c, kind, selection) {
+  const g = { ...structuredClone(selection), fingerprints: emptyFingerprints() };
+  for (const category of Object.keys(g.fingerprints)) for (const field of g[category] ?? [])
+    g.fingerprints[category][field] = careerApprovalFingerprint(c, kind, g, category, field);
+  return g;
+}
+function reviewSelections(c) {
+  for (const [kind, selections] of Object.entries(c.careerPublication))
+    c.careerPublication[kind] = selections.map(g => reviewed(c, kind, g));
+}
+function grant(kind) { const c = fixture(); c.careerPublication[kind].push(reviewed(c, kind, target[kind])); return c; }
 function buildFailure(load, pattern) {
   assert.throws(load, error => {
     assert(error instanceof BuildError);
@@ -64,7 +75,7 @@ describe("publication default deny and independent selectors", () => {
   });
   test("same local id under different parents is independently approvable", () => {
     const c = grant("work"); c.careerPublication.work.push({ ...target.work, employerId: "employerB", fields: ["description.id"] });
-    c.careerPublication.components = [target.components, { ...target.components, engagementId: "engagementB" }]; valid(c);
+    c.careerPublication.components = [target.components, { ...target.components, engagementId: "engagementB" }]; reviewSelections(c); valid(c);
   });
   test("public repository is not an implicit repository grant", () => {
     const c = grant("assessments"); valid(c);
@@ -73,12 +84,12 @@ describe("publication default deny and independent selectors", () => {
   });
   test("description locale, null end date and exact technology/relationship selections are independent", () => {
     const c = grant("work"); c.careerPublication.work[0] = { ...target.work, fields: ["description.en"], technologies: ["TypeScript"], relatedProjects: ["gateway"] };
-    c.careerPublication.experience = [{ id: "employerA", fields: ["end"] }]; valid(c);
+    c.careerPublication.experience = [{ id: "employerA", fields: ["end"] }]; reviewSelections(c); valid(c);
     assert(!c.careerPublication.work[0].fields.includes("description.id"));
     assert.deepEqual(c.careerPublication.work[0].technologies, ["TypeScript"]);
   });
   test("exact technology values can be granted without scalar fields", () => {
-    const c = grant("components"); c.careerPublication.components[0] = { ...target.components, fields: [], technologies: ["TypeScript"] }; valid(c);
+    const c = grant("components"); c.careerPublication.components[0] = { ...target.components, fields: [], technologies: ["TypeScript"] }; reviewSelections(c); valid(c);
   });
 });
 
@@ -102,7 +113,7 @@ describe("publication schema rejects unsupported/malformed declarations", () => 
       const c = grant(kind); const g = c.careerPublication[kind][0]; g.fields.push(g.fields[0]); invalid(c, /duplicate items/, /schema/);
     });
     test(`${kind} rejects exact duplicate grants`, () => {
-      const c = grant(kind); c.careerPublication[kind].push(structuredClone(target[kind])); invalid(c, /duplicate items/, /schema/);
+      const c = grant(kind); c.careerPublication[kind].push(structuredClone(c.careerPublication[kind][0])); invalid(c, /duplicate items/, /schema/);
     });
     test(`${kind} rejects duplicate identity with different fields`, () => {
       const c = grant(kind); c.careerPublication[kind].push({ ...target[kind], fields: [] , technologies: ["TypeScript"] });
@@ -170,7 +181,7 @@ describe("publication semantic references and link safety", () => {
     c.career.experience[0].work[0].relatedProjects = ["wedding"]; c.careerPublication.work[0].relatedProjects = ["wedding"]; invalid(c, /must reference a public project/);
   });
   test("explicit repository grant requires the canonical public repository; absence is rejected", () => {
-    const c = grant("assessments"); c.careerPublication.assessments[0].fields = ["repository"]; valid(c);
+    const c = grant("assessments"); c.careerPublication.assessments[0].fields = ["repository"]; reviewSelections(c); valid(c);
     delete c.career.assessments[0].repository; delete c.career.assessments[0].repositoryVisibility;
     invalid(c, /absent from the canonical record|requires a declared public repository/);
   });
@@ -198,11 +209,19 @@ describe("publication source and generated contract", () => {
     } finally { tmp.cleanup(); }
   }
   test("missing publication source explicitly assembles deny-all for legacy source trees", () => source({}, load => assert.deepEqual(load().careerPublication, emptyCareerPublication())));
-  test("invalid source approvals cannot bypass validation through assemble()", () => source({ "career-publication.json": { ...emptyCareerPublication(), experience: [{ id: "unknownEmployer", fields: ["company"] }] } }, load => buildFailure(load, /unknown experience id/)));
+  test("invalid source approvals cannot bypass validation through assemble()", () => source({ "career-publication.json": { ...emptyCareerPublication(), experience: [{ id: "unknownEmployer", fields: ["company"], fingerprints: emptyFingerprints() }] } }, load => buildFailure(load, /unknown experience id/)));
+  test("assembly rejects changed approved source without rewriting evidence", () => {
+    const c = fixture(), g = reviewed(c, "work", target.work);
+    const permissions = { ...emptyCareerPublication(), work: [g] }, before = structuredClone(permissions);
+    source({ "career/experience/employerA.json": { ...employer("employerA"), work: [{ ...work(), title: "Changed approved title" }] },
+      "career-publication.json": permissions }, load => buildFailure(load, /stale/));
+    assert.deepEqual(permissions, before);
+  });
   test("malformed source approval file fails before output replacement", () => source({ "career-publication.json": { ...emptyCareerPublication(), experience: [{ id: "employerA", fields: ["*"] }] } }, load => assert.throws(load, BuildError)));
   test("global approvals cannot be silently shadowed by the dedicated source", () => source({ "global.json": { ...JSON.parse(readFileSync(join(root, "config/global.json"))), careerPublication: emptyCareerPublication() } }, load => assert.throws(load, /must not contain careerPublication/)));
   test("assembly sorts grants by stable ids independently of insertion order", () => {
-    const a = { ...emptyCareerPublication(), work: [{ ...target.work, id: "z-work" }, target.work] };
+    const c = fixture(); c.career.experience[0].work.push({ ...work(), id: "z-work" });
+    const a = { ...emptyCareerPublication(), work: [reviewed(c, "work", { ...target.work, id: "z-work" }), reviewed(c, "work", target.work)] };
     source({ "career/experience/employerA.json": employer("employerA"), "career-publication.json": a }, load => buildFailure(load, /unknown work id/));
     source({ "career/experience/employerA.json": { ...employer("employerA"), work: [work(), { ...work(), id: "z-work" }] }, "career-publication.json": a }, load => {
       assert.deepEqual(load().careerPublication.work.map(g => g.id), ["shared-work", "z-work"]);

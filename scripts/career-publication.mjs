@@ -1,3 +1,5 @@
+import { checkCareerFingerprints } from "./career-approval-fingerprint.mjs";
+
 // Semantic checks for schema-valid permissions. No projection, content mutation,
 // inferred grants or network access; callers run structural validation first.
 export const emptyCareerPublication = () => ({ experience: [], work: [], freelance: [], components: [], assessments: [] });
@@ -28,6 +30,8 @@ export function checkCareerPublication(config, errors) {
       if (!record) { errors.push(`${at}: unknown ${kind} id "${grant.id}"${parentId ? ` under "${parentId}"` : ""}`); continue; }
       if ((parent ?? record).listing !== "public") errors.push(`${at}: approval requires canonical public listing (not publication permission)`);
       if (!grant.fields.length && !grant.technologies?.length && !grant.relatedProjects?.length) errors.push(`${at}: approval must select at least one field or value`);
+
+      checkCareerFingerprints(config, kind, grant, at, errors);
 
       for (const field of grant.fields) {
         const present = field.split(".").reduce((value, part) => value != null && Object.hasOwn(value, part) ? value[part] : undefined, record);

@@ -605,3 +605,7 @@ Next:
 1. Gateway Universe integration (G7): Gateway reads career, origins and concepts, which its resolver currently drops.
 2. Consumer fixes tracked outside this repository (see [docs/consumers](docs/consumers/README.md)).
 3. Automate dependent rebuilds (proposed only; see [github-actions.md](docs/consumers/github-actions.md)).
+
+### Content-bound Career approvals
+
+Every nonempty Career grant now requires independently reviewed fingerprints for its selected fields and values. Missing or stale evidence rejects validation; normal builds never refresh it. See [Career publication approvals](docs/career-publication-approvals.md) for exact canonicalization, explicit reviewer commands, fail-closed migration and Gateway compatibility. All real grants remain empty.
