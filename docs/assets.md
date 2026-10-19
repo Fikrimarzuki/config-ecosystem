@@ -42,7 +42,9 @@ assets/
 }
 ```
 
-The second block is a project file example; `playdeck` has no assets yet.
+The second block is an illustrative project file; in the registry `playdeck` has only a `thumbnail`.
+
+Project thumbnails are owner-approved screenshots of the public application: 1280×720 WebP, at most about 150 KB, stored as `assets/projects/<projectId>/thumbnail.webp`. They are optional. Consumers copy the ones they use into their own build output (see the [consumer integration guide](consumers/integration.md) ("Shared assets")); a missing thumbnail must never hide a project.
 
 Rules checked by `pnpm build` and `pnpm validate`:
 

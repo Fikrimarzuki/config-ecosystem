@@ -16,5 +16,8 @@
     "en": "A colourful collection of mini-games and interactive learning activities for children, featuring puzzles, challenges, and family-friendly multiplayer games."
   },
   "technologies": ["Vite", "Vanilla JavaScript", "PWA"],
-  "tags": ["games", "kids", "learning", "multiplayer"]
+  "tags": ["games", "kids", "learning", "multiplayer"],
+  "assets": {
+    "thumbnail": "assets/projects/playnest/thumbnail.webp"
+  }
 }

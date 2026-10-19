@@ -294,7 +294,7 @@ describe("committed origins records", () => {
   });
 
   test("existing projects and career collections keep their counts", () => {
-    assert.equal(Object.keys(production.projects).length, 33);
+    assert.equal(Object.keys(production.projects).length, 34); // 33 + fmStudios (hidden, M8.8c)
     assert.equal(production.career.experience.length, 5);
     assert.equal(production.career.experience.reduce((total, record) => total + (record.work ?? []).length, 0), 12);
     assert.equal(production.career.freelance.length, 7);

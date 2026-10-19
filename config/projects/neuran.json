@@ -27,5 +27,8 @@
       "name": "neuran-social",
       "subdomain": "neuran-social"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/neuran/thumbnail.webp"
   }
 }

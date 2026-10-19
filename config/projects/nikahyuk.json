@@ -11,5 +11,8 @@
       "name": "nikahyuk",
       "subdomain": "nikahyuk"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/nikahyuk/thumbnail.webp"
   }
 }

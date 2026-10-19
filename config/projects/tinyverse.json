@@ -11,5 +11,8 @@
       "name": "tinyverse",
       "subdomain": "tinyverse"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/tinyverse/thumbnail.webp"
   }
 }

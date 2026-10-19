@@ -12,5 +12,8 @@
       "name": "tcg-hub",
       "subdomain": "tcg-hub"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/tcgHub/thumbnail.webp"
   }
 }

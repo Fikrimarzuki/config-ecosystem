@@ -14,5 +14,8 @@
         "www"
       ]
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/gateway/thumbnail.webp"
   }
 }

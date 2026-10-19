@@ -12,5 +12,8 @@
       "name": "foodie-map",
       "subdomain": "foodie-map"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/foodieMap/thumbnail.webp"
   }
 }

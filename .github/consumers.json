@@ -34,6 +34,168 @@
         "Resolves deployments.main URLs per the contract (external url as written, subdomain: null as apex) for a planned Open link.",
         "Deployment platform (Vercel per its README) and failure behaviour not verified beyond the repository."
       ]
+    },
+    {
+      "repository": "web-tools",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build and typecheck.",
+        "Validates the public support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Supports apex, subdomain and external HTTPS URLs; preserves external paths and trailing slashes. Unused canonical fields are ignored.",
+        "A failed fetch or invalid config removes generated output and fails the command, with no stale fallback. ECOSYSTEM_CONFIG_PATH is an explicit local-development override rejected in production/CI.",
+        "Consumer contract tests cover URL changes, visibility, minimal projection and sync failure cleanup. Notification dispatch and deployment-platform failure behaviour are not enabled or verified."
+      ]
+    },
+    {
+      "repository": "web-devtools",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build and typecheck.",
+        "Validates the public support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Supports apex, subdomain and external HTTPS URLs; preserves external paths and trailing slashes. Unused canonical fields are ignored.",
+        "A failed fetch or invalid config removes generated output and fails the command, with no stale fallback. ECOSYSTEM_CONFIG_PATH is an explicit local-development override rejected in production/CI.",
+        "Consumer contract tests cover URL changes, visibility, minimal projection and sync failure cleanup. Notification dispatch and deployment-platform failure behaviour are not enabled or verified."
+      ]
+    },
+    {
+      "repository": "web-roadmap",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build and typecheck.",
+        "Validates the public support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Supports apex, subdomain and external HTTPS URLs; preserves external paths and trailing slashes. Unused canonical fields are ignored.",
+        "A failed fetch or invalid config removes generated output and fails the command, with no stale fallback. ECOSYSTEM_CONFIG_PATH is an explicit local-development override rejected in production/CI.",
+        "Consumer contract tests cover URL changes, visibility, minimal projection and sync failure cleanup. Notification dispatch and deployment-platform failure behaviour are not enabled or verified."
+      ]
+    },
+    {
+      "repository": "web-projects",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build and typecheck.",
+        "Validates the public support, gateway, cv, playground and tools main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Supports apex, subdomain and external HTTPS URLs; preserves external paths and trailing slashes. Unused canonical fields are ignored.",
+        "A failed fetch or invalid config removes generated output and fails the command, with no stale fallback. ECOSYSTEM_CONFIG_PATH is an explicit local-development override rejected in production/CI.",
+        "Consumer contract tests cover URL changes, visibility, minimal projection and sync failure cleanup. Notification dispatch and deployment-platform failure behaviour are not enabled or verified."
+      ]
+    },
+    {
+      "repository": "game-tinyverse",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build and typecheck and test.",
+        "Validates the public support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Supports apex, subdomain and external HTTPS URLs; preserves external paths and trailing slashes. Unused canonical fields are ignored.",
+        "A failed fetch or invalid config removes generated output and fails the command, with no stale fallback. ECOSYSTEM_CONFIG_PATH is an explicit local-development override rejected in production/CI.",
+        "Consumer contract tests cover URL changes, visibility, minimal projection and sync failure cleanup. Notification dispatch and deployment-platform failure behaviour are not enabled or verified."
+      ]
+    },
+    {
+      "repository": "web-learning",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build and typecheck and test.",
+        "Validates the public support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Supports apex, subdomain and external HTTPS URLs; preserves external paths and trailing slashes. Unused canonical fields are ignored.",
+        "A failed fetch or invalid config removes generated output and fails the command, with no stale fallback. ECOSYSTEM_CONFIG_PATH is an explicit local-development override rejected in production/CI.",
+        "Consumer contract tests cover URL changes, visibility, minimal projection and sync failure cleanup. Notification dispatch and deployment-platform failure behaviour are not enabled or verified."
+      ]
+    },
+    {
+      "repository": "app-fm-studios",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before web dev, build and tests and typecheck.",
+        "Validates public active support and gateway main deployments, emits only their URLs, supports apex/subdomain/external HTTPS deployments and preserves external paths and trailing slashes.",
+        "No stale fallback: failed sync removes generated output and fails the command. Explicit local canonical artifacts are rejected in production builds and CI.",
+        "UI uses generated URL data; unrelated records, repositories and publication grants are never copied to browser data.",
+        "Consumer contract and UI tests are present. Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
+    },
+    {
+      "repository": "app-hearthside",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before web dev, build and tests and typecheck.",
+        "Validates public active support and gateway main deployments, emits only their URLs, supports apex/subdomain/external HTTPS deployments and preserves external paths and trailing slashes.",
+        "No stale fallback: failed sync removes generated output and fails the command. Explicit local canonical artifacts are rejected in production builds and CI.",
+        "UI uses generated URL data; unrelated records, repositories and publication grants are never copied to browser data.",
+        "Consumer contract and UI tests are present. Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
+    },
+    {
+      "repository": "web-playnest",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before web dev, build and tests.",
+        "Validates public active support and gateway main deployments, emits only their URLs, supports apex/subdomain/external HTTPS deployments and preserves external paths and trailing slashes.",
+        "No stale fallback: failed sync removes generated output and fails the command. Explicit local canonical artifacts are rejected in production builds and CI.",
+        "Playnest exposes the external links only inside its Grown-ups dialog after a word-based arithmetic check; closing the dialog or entering a game resets the check.",
+        "Consumer contract and UI tests are present. Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
+    },
+    {
+      "repository": "learn-kodestep",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build, typecheck and test. Production builds and CI require fresh remote configuration.",
+        "Validates public active support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Apex, subdomain and external HTTPS URLs are supported; paths and trailing slashes are preserved.",
+        "A failed sync removes stale generated output and fails the command. Explicit local canonical artifacts are development-only. Unique staging files allow concurrent refreshes.",
+        "KodeStep uses its existing bilingual footer; Web Games uses its lobby footer; JavaScriptia uses its main-menu Contact dialog. Labels and local-data wording stay app-owned.",
+        "Consumer contract and UI tests are present. Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
+    },
+    {
+      "repository": "web-games",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build, typecheck and test. Production builds and CI require fresh remote configuration.",
+        "Validates public active support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Apex, subdomain and external HTTPS URLs are supported; paths and trailing slashes are preserved.",
+        "A failed sync removes stale generated output and fails the command. Explicit local canonical artifacts are development-only. Unique staging files allow concurrent refreshes.",
+        "KodeStep uses its existing bilingual footer; Web Games uses its lobby footer; JavaScriptia uses its main-menu Contact dialog. Labels and local-data wording stay app-owned.",
+        "Consumer contract and UI tests are present. Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
+    },
+    {
+      "repository": "game-javascriptia",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before dev, build, typecheck and test. Production builds and CI require fresh remote configuration.",
+        "Validates public active support and gateway main deployments and writes only resolved URLs to ignored src/generated/ecosystem-links.json. Apex, subdomain and external HTTPS URLs are supported; paths and trailing slashes are preserved.",
+        "A failed sync removes stale generated output and fails the command. Explicit local canonical artifacts are development-only. Unique staging files allow concurrent refreshes.",
+        "KodeStep uses its existing bilingual footer; Web Games uses its lobby footer; JavaScriptia uses its main-menu Contact dialog. Labels and local-data wording stay app-owned.",
+        "Consumer contract and UI tests are present. Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
+    },
+    {
+      "repository": "app-pagelayr",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Extends its existing Next-config sync of main/config/production.json (identical to dist/ecosystem.json). Direct Next dev/build and package dev/build sync; test, browser tests and typecheck also sync explicitly.",
+        "Validates only version, domains.primary and the public active support/gateway main deployments, and emits their URLs in ignored src/config/ecosystem.generated.ts. Supports apex/subdomain/external HTTPS URLs and preserves external paths and trailing slashes; unused fields are ignored.",
+        "Unique atomic staging files support concurrent syncs, unchanged URL output preserves mtime, and failed sync deletes stale generated output. ECOSYSTEM_CONFIG_FILE is a local-development input rejected in production builds and CI.",
+        "Landing Support and More projects links use canonical URLs with the existing same-tab behavior; the local-save notice is retained. Contract and responsive browser tests cover both links.",
+        "Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
+    },
+    {
+      "repository": "app-playdeck",
+      "status": "compatible",
+      "notify": false,
+      "notes": [
+        "Syncs main/dist/ecosystem.json before package dev, build, typecheck, test/watch and browser tests. Production builds and CI require fresh remote configuration.",
+        "Validates public active support and gateway main deployments and generates only their resolved URLs in ignored src/generated/ecosystem-links.json. Supports apex, subdomains and explicit HTTPS URLs with external paths and trailing slashes preserved.",
+        "Failed sync removes stale output and fails the command. Unique atomic staging files support concurrent refreshes; ECOSYSTEM_CONFIG_PATH is an explicit local-development input rejected in production builds and CI.",
+        "Support and More projects appear in the landing, mode chooser and project-library footers. Existing local-save wording remains; creator, presentation runtime and gameplay chrome are unchanged.",
+        "Consumer contract, UI and responsive browser tests are present. Notifications and automatic deployments remain disabled; hosting failure behaviour is not verified."
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "fmStudios",
+  "name": "FM Studios",
+  "status": "active",
+  "listing": "hidden",
+  "destination": "platforms",
+  "repository": "app-fm-studios",
+  "repositoryVisibility": "private",
+  "description": {
+    "en": "A local-first virtual software studio in development: a manager supervises a team of AI employees through a private dashboard."
+  }
+}

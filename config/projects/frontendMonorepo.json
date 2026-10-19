@@ -1,6 +1,6 @@
 {
   "id": "frontendMonorepo",
-  "name": "Frontend Monorepo",
+  "name": "FM Monorepo",
   "status": "paused",
   "listing": "public",
   "destination": "platforms",

@@ -95,8 +95,8 @@ describe("GitHub username", () => {
 });
 
 describe("project ids", () => {
-  test("all 33 existing project ids are camelCase", () => {
-    assert.equal(Object.keys(production.projects).length, 33);
+  test("all 34 existing project ids are camelCase", () => {
+    assert.equal(Object.keys(production.projects).length, 34); // 33 + fmStudios (hidden, M8.8c)
     for (const id of Object.keys(production.projects)) assert.match(id, /^[a-z][a-zA-Z0-9]*$/, id);
   });
 
@@ -196,7 +196,7 @@ describe("source tree", () => {
 describe("generated data unchanged", () => {
   test("collection counts", () => {
     assert.equal(production.version, 1);
-    assert.equal(Object.keys(production.projects).length, 33);
+    assert.equal(Object.keys(production.projects).length, 34); // 33 + fmStudios (hidden, M8.8c)
     assert.equal(production.career.experience.length, 5);
     assert.equal(production.career.experience.reduce((total, record) => total + (record.work ?? []).length, 0), 12);
     assert.equal(production.career.freelance.length, 7);

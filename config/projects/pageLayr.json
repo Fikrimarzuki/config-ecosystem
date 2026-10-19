@@ -11,5 +11,8 @@
       "name": "page-layr",
       "subdomain": "page-layr"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/pageLayr/thumbnail.webp"
   }
 }

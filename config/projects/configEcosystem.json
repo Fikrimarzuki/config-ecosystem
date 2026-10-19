@@ -6,7 +6,16 @@
   "destination": "central-station",
   "repository": "config-ecosystem",
   "repositoryVisibility": "public",
+  "deployments": {
+    "main": {
+      "name": "config-ecosystem",
+      "url": "https://fikrimarzuki.github.io/config-ecosystem/"
+    }
+  },
   "description": {
     "en": "Centralized project metadata, schemas, validation, and generated configuration for my developer ecosystem."
+  },
+  "assets": {
+    "thumbnail": "assets/projects/configEcosystem/thumbnail.webp"
   }
 }

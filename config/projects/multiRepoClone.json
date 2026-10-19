@@ -5,5 +5,8 @@
   "listing": "public",
   "destination": "tools",
   "repository": "tool-multiple-git-clone",
-  "repositoryVisibility": "public"
+  "repositoryVisibility": "public",
+  "assets": {
+    "thumbnail": "assets/projects/multiRepoClone/thumbnail.webp"
+  }
 }

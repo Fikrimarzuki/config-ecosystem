@@ -11,5 +11,8 @@
       "name": "learning",
       "subdomain": "learn"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/learning/thumbnail.webp"
   }
 }

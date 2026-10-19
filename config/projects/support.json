@@ -11,5 +11,8 @@
       "name": "support",
       "subdomain": "support"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/support/thumbnail.webp"
   }
 }

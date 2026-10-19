@@ -11,5 +11,8 @@
       "name": "css-tricks",
       "url": "https://fikrimarzuki.github.io/lab-css-tricks/"
     }
+  },
+  "assets": {
+    "thumbnail": "assets/projects/cssTricks/thumbnail.webp"
   }
 }

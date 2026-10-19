@@ -8,5 +8,8 @@
   "repositoryVisibility": "public",
   "description": {
     "en": "A collection of developer learning resources and roadmap content: language notes, practice projects, and role-based and skill-based learning paths."
+  },
+  "assets": {
+    "thumbnail": "assets/projects/developerRoadmap/thumbnail.webp"
   }
 }

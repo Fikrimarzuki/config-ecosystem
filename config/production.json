@@ -38,8 +38,17 @@
       "destination": "central-station",
       "repository": "config-ecosystem",
       "repositoryVisibility": "public",
+      "deployments": {
+        "main": {
+          "name": "config-ecosystem",
+          "url": "https://fikrimarzuki.github.io/config-ecosystem/"
+        }
+      },
       "description": {
         "en": "Centralized project metadata, schemas, validation, and generated configuration for my developer ecosystem."
+      },
+      "assets": {
+        "thumbnail": "assets/projects/configEcosystem/thumbnail.webp"
       }
     },
     "cssTricks": {
@@ -54,6 +63,9 @@
           "name": "css-tricks",
           "url": "https://fikrimarzuki.github.io/lab-css-tricks/"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/cssTricks/thumbnail.webp"
       }
     },
     "cv": {
@@ -79,6 +91,9 @@
       "repositoryVisibility": "public",
       "description": {
         "en": "A collection of developer learning resources and roadmap content: language notes, practice projects, and role-based and skill-based learning paths."
+      },
+      "assets": {
+        "thumbnail": "assets/projects/developerRoadmap/thumbnail.webp"
       }
     },
     "devtools": {
@@ -95,6 +110,17 @@
         }
       }
     },
+    "fmStudios": {
+      "name": "FM Studios",
+      "status": "active",
+      "listing": "hidden",
+      "destination": "platforms",
+      "repository": "app-fm-studios",
+      "repositoryVisibility": "private",
+      "description": {
+        "en": "A local-first virtual software studio in development: a manager supervises a team of AI employees through a private dashboard."
+      }
+    },
     "foodieMap": {
       "name": "Foodie Map",
       "status": "paused",
@@ -108,10 +134,13 @@
           "name": "foodie-map",
           "subdomain": "foodie-map"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/foodieMap/thumbnail.webp"
       }
     },
     "frontendMonorepo": {
-      "name": "Frontend Monorepo",
+      "name": "FM Monorepo",
       "status": "paused",
       "listing": "public",
       "destination": "platforms",
@@ -147,6 +176,9 @@
             "www"
           ]
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/gateway/thumbnail.webp"
       }
     },
     "inventory": {
@@ -164,6 +196,9 @@
       },
       "description": {
         "en": "A demo inventory management application that uses mock data."
+      },
+      "assets": {
+        "thumbnail": "assets/projects/inventory/thumbnail.webp"
       }
     },
     "javascriptia": {
@@ -192,6 +227,9 @@
           "name": "kodestep",
           "subdomain": "kodestep"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/kodeStep/thumbnail.webp"
       }
     },
     "learning": {
@@ -206,6 +244,9 @@
           "name": "learning",
           "subdomain": "learn"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/learning/thumbnail.webp"
       }
     },
     "multiRepoClone": {
@@ -214,7 +255,10 @@
       "listing": "public",
       "destination": "tools",
       "repository": "tool-multiple-git-clone",
-      "repositoryVisibility": "public"
+      "repositoryVisibility": "public",
+      "assets": {
+        "thumbnail": "assets/projects/multiRepoClone/thumbnail.webp"
+      }
     },
     "neuran": {
       "name": "Neuran",
@@ -244,6 +288,9 @@
           "name": "neuran-social",
           "subdomain": "neuran-social"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/neuran/thumbnail.webp"
       }
     },
     "nikahkuy": {
@@ -259,6 +306,9 @@
           "name": "nikahkuy",
           "subdomain": "nikahkuy"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/nikahkuy/thumbnail.webp"
       }
     },
     "nikahyuk": {
@@ -273,6 +323,9 @@
           "name": "nikahyuk",
           "subdomain": "nikahyuk"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/nikahyuk/thumbnail.webp"
       }
     },
     "nikahyukPrototype": {
@@ -288,6 +341,9 @@
           "name": "nikahyuk-prototype",
           "subdomain": "nikahyuk-prototype"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/nikahyukPrototype/thumbnail.webp"
       }
     },
     "nodeApi": {
@@ -310,6 +366,9 @@
           "name": "page-layr",
           "subdomain": "page-layr"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/pageLayr/thumbnail.webp"
       }
     },
     "playdeck": {
@@ -337,7 +396,10 @@
       "tags": [
         "presentation",
         "game"
-      ]
+      ],
+      "assets": {
+        "thumbnail": "assets/projects/playdeck/thumbnail.webp"
+      }
     },
     "playground": {
       "name": "Playground",
@@ -379,7 +441,10 @@
         "kids",
         "learning",
         "multiplayer"
-      ]
+      ],
+      "assets": {
+        "thumbnail": "assets/projects/playnest/thumbnail.webp"
+      }
     },
     "projects": {
       "name": "Projects",
@@ -429,6 +494,9 @@
           "name": "support",
           "subdomain": "support"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/support/thumbnail.webp"
       }
     },
     "tcgHub": {
@@ -444,6 +512,9 @@
           "name": "tcg-hub",
           "subdomain": "tcg-hub"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/tcgHub/thumbnail.webp"
       }
     },
     "tinyverse": {
@@ -458,6 +529,9 @@
           "name": "tinyverse",
           "subdomain": "tinyverse"
         }
+      },
+      "assets": {
+        "thumbnail": "assets/projects/tinyverse/thumbnail.webp"
       }
     },
     "tools": {
