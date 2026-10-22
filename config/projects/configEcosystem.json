@@ -16,6 +16,7 @@
     "en": "Centralized project metadata, schemas, validation, and generated configuration for my developer ecosystem."
   },
   "assets": {
+    "icon": "assets/projects/configEcosystem/icon.png",
     "thumbnail": "assets/projects/configEcosystem/thumbnail.webp"
   }
 }

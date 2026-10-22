@@ -48,6 +48,7 @@
         "en": "Centralized project metadata, schemas, validation, and generated configuration for my developer ecosystem."
       },
       "assets": {
+        "icon": "assets/projects/configEcosystem/icon.png",
         "thumbnail": "assets/projects/configEcosystem/thumbnail.webp"
       }
     },
@@ -80,6 +81,9 @@
           "name": "cv",
           "subdomain": "cv"
         }
+      },
+      "assets": {
+        "icon": "assets/projects/cv/icon.png"
       }
     },
     "developerRoadmap": {
@@ -108,6 +112,9 @@
           "name": "devtools",
           "subdomain": "devtools"
         }
+      },
+      "assets": {
+        "icon": "assets/projects/devtools/icon.png"
       }
     },
     "fmStudios": {
@@ -413,6 +420,9 @@
           "name": "playground",
           "subdomain": "play"
         }
+      },
+      "assets": {
+        "icon": "assets/projects/playground/icon.png"
       }
     },
     "playnest": {
@@ -458,6 +468,9 @@
           "name": "projects",
           "subdomain": "projects"
         }
+      },
+      "assets": {
+        "icon": "assets/projects/projects/icon.png"
       }
     },
     "roadmap": {
@@ -496,6 +509,7 @@
         }
       },
       "assets": {
+        "icon": "assets/projects/support/icon.png",
         "thumbnail": "assets/projects/support/thumbnail.webp"
       }
     },
@@ -546,6 +560,9 @@
           "name": "tools",
           "subdomain": "tools"
         }
+      },
+      "assets": {
+        "icon": "assets/projects/tools/icon.png"
       }
     },
     "wedding": {

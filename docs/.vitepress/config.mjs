@@ -17,7 +17,9 @@ export default defineConfig({
   cleanUrls: false,
   srcExclude: ['diagnostics/**'],
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
+    ['link', { rel: 'icon', type: 'image/x-icon', href: `${base}favicon.ico` }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}icon.svg`, sizes: 'any' }],
+    ['link', { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png`, sizes: '180x180' }],
     ['meta', { name: 'theme-color', content: '#23734f' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'FM Work · Ecosystem Config' }],

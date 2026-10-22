@@ -11,5 +11,8 @@
       "name": "devtools",
       "subdomain": "devtools"
     }
+  },
+  "assets": {
+    "icon": "assets/projects/devtools/icon.png"
   }
 }

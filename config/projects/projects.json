@@ -11,5 +11,8 @@
       "name": "projects",
       "subdomain": "projects"
     }
+  },
+  "assets": {
+    "icon": "assets/projects/projects/icon.png"
   }
 }

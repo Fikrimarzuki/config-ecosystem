@@ -11,5 +11,8 @@
       "name": "tools",
       "subdomain": "tools"
     }
+  },
+  "assets": {
+    "icon": "assets/projects/tools/icon.png"
   }
 }

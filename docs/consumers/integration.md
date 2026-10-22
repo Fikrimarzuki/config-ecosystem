@@ -172,6 +172,15 @@ const assetUrl = new URL(config.profile.assets.resume, ASSET_ROOT).href;
 
 **Copy the files you use at build time** into your own build output and serve them from your own origin. Don't hotlink `raw.githubusercontent.com` from pages: it has no availability guarantees, and a failure at runtime can't be rolled back. Verify what you downloaded (the Gateway checks the PDF signature and trailer before publishing a resume download, and refuses to publish if it's wrong). Copy only the assets you use; no consumer needs all of them.
 
+**Project icons.** A project may carry `assets.icon`, a path such as `assets/projects/cv/icon.png` (a 512×512 PNG; currently set for `cv`, `playground`, `support`, `projects`, `tools`, `configEcosystem` and `devtools`). It is optional and resolved like any other asset:
+
+```js
+const icon = config.projects.cv.assets?.icon;               // undefined when the project has none
+const iconUrl = icon && new URL(icon, ASSET_ROOT).href;     // build-time download source; copy the file, don't hotlink
+```
+
+Verify the download (PNG signature and expected size), drop the icon with a warning if it fails, and never hide a project because its icon is missing. `icon` is the project's square brand mark, not a favicon, a web-manifest icon or a logo; applications keep owning those. See [Project icons](../assets.md#project-icons).
+
 ## 6. Career
 
 `career` holds three arrays. Unlike `projects`, they are arrays because their order is meaningful, and each record carries its own `id`:
